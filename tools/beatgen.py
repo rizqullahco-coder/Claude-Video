@@ -11,6 +11,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("out"); ap.add_argument("--bpm", type=float, default=118)
 ap.add_argument("--bars", type=int, default=28); ap.add_argument("--mood", default="bright")
 ap.add_argument("--seed", type=int, default=7)
+ap.add_argument("--nodrums", action="store_true", help="no kick/clap/hats (soft, romantic beds)")
 a = ap.parse_args()
 rng = np.random.default_rng(a.seed)
 beat = 60 / a.bpm; bar = 4 * beat; n = int(SR * bar * a.bars) + SR
@@ -66,6 +67,8 @@ if a.mood == "drive":
     prog = [(57, [69, 72, 76]), (53, [69, 72, 77]), (60, [67, 72, 76]), (55, [67, 71, 74])]
 elif a.mood == "soft":  # I - V - vi - IV in D, warmer voicings
     prog = [(50, [66, 69, 74]), (57, [64, 69, 73]), (47, [66, 71, 74]), (55, [67, 71, 74])]
+elif a.mood == "romance":  # Cmaj7 - Am7 - Fmaj7 - G, gentle and warm
+    prog = [(48, [64, 67, 71]), (45, [60, 64, 67]), (41, [57, 60, 64]), (43, [59, 62, 67])]
 elif a.mood == "pop":  # IV - I - V - vi in E
     prog = [(57, [69, 73, 76]), (52, [68, 71, 76]), (59, [66, 71, 75]), (49, [68, 73, 76])]
 
@@ -76,7 +79,7 @@ for b in range(a.bars):
     intro = b < 2
     breakdown = b % 8 == 7
     # drums
-    if not intro:
+    if not intro and not a.nodrums:
         for q in range(4):
             if not (breakdown and q >= 2):
                 put(kick(), t0 + q * beat, 0.9)
@@ -84,9 +87,10 @@ for b in range(a.bars):
             put(kick(), t0 + 2.5 * beat, 0.6)
         put(clap(), t0 + beat, 0.38, 0.1); put(clap(), t0 + 3 * beat, 0.38, -0.1)
     for e8 in range(8):
+        if a.nodrums: break
         if intro and e8 % 2: continue
         put(hat(open_=(e8 % 4 == 2 and not intro)), t0 + e8 * beat / 2 + (0.012 if e8 % 2 else 0), 0.8 if e8 % 2 else 0.5, 0.35)
-    if not intro and b % 2 == 1:
+    if not intro and b % 2 == 1 and not a.nodrums:
         for s16 in (13, 14, 15):
             put(hat(), t0 + s16 * beat / 4, 0.35, -0.35)
     # bass (sub, root, pumping eighths)
