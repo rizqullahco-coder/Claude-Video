@@ -86,7 +86,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000;font-family
 const html = `<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=${W}, height=${H}"/>
 <script src="assets/gsap.min.js"></script><style>${css}</style></head><body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="${TOTAL}" data-width="${W}" data-height="${H}">
-  <video id="foot" class="clip" src="assets/master.mp4" data-start="0" data-duration="${FOOT}" data-has-audio="true" data-volume="0.32" data-track-index="0"></video>
+  <video id="foot" class="clip" src="assets/master.mp4" data-start="0" data-duration="${FOOT}" data-has-audio="true" data-volume="0.14" data-track-index="0"></video>
   <div id="shade" class="clip" data-start="0" data-duration="${FOOT}" data-track-index="1"><img class="logo" src="assets/logo-light.png" alt=""/></div>
   <div id="frame" class="clip" data-start="0" data-duration="${FOOT}" data-track-index="1"></div>
   ${chapters.map(([s, e, t], i) => `<div id="chap${i}" class="clip chap" data-start="${s}" data-duration="${n3(e - s)}" data-track-index="1"><span class="num">${String(i + 1).padStart(2, "0")} / 04</span><span class="ttl">${h(t)}</span></div>`).join("\n  ")}
@@ -100,8 +100,8 @@ ${capHtml}
   </section>
   <div id="progress-track" class="clip" data-start="0" data-duration="${FOOT}" data-track-index="4"><div id="progress"></div></div>
   ${chapters.slice(1).map(([s], k) => `<audio id="wh${k}" src="assets/whoosh.wav" data-start="${n3(s - 0.35)}" data-duration="0.45" data-volume="0.45"></audio>`).join("\n  ")}
-  <audio id="music" src="assets/music.mp3" data-start="0" data-duration="${FOOT}" data-media-start="0" data-volume="0.55" data-fade-in="0.2" data-fade-out="0.3"></audio>
-  <audio id="music-end" src="assets/music.mp3" data-start="${FOOT}" data-duration="${END}" data-media-start="${FOOT}" data-volume="0.75" data-fade-in="0.2" data-fade-out="2"></audio>
+  <audio id="music" src="assets/music.mp3" data-start="0" data-duration="${FOOT}" data-media-start="0" data-volume="1" data-fade-in="0.2" data-fade-out="0.3"></audio>
+  <audio id="music-end" src="assets/music.mp3" data-start="${FOOT}" data-duration="${END}" data-media-start="${FOOT}" data-volume="1" data-fade-in="0.1" data-fade-out="2.4"></audio>
 </div>
 <script>
   window.__timelines = window.__timelines || {};
@@ -123,7 +123,7 @@ cp("node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-6
 cp(kit.logo.lightInk, "logo-light.png");
 cp("media/music/beats/trip/whoosh.wav", "whoosh.wav");
 cp(path.join(trip, "master.mp4"), "master.mp4");
-await prepMusic(path.join(ROOT, "media/music/beats/trip/beat.wav"), path.join(A, "music.mp3"));
+await prepMusic(path.join(ROOT, "media/music/beats/trip/tripsong.wav"), path.join(A, "music.mp3"));
 fs.writeFileSync(path.join(bd, "hyperframes.json"), JSON.stringify({ paths: { blocks: "compositions", components: "compositions/components", assets: "assets" }, media: { autoProxy: true } }, null, 2));
 fs.writeFileSync(path.join(bd, "meta.json"), JSON.stringify({ id: "trip-reel", name: "Road trip gone wrong" }, null, 2));
 await hyperframes(["lint"], { cwd: bd });
