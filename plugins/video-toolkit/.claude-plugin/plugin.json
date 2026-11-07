@@ -1,0 +1,11 @@
+{
+  "name": "video-toolkit",
+  "version": "0.1.0",
+  "description": "Trim, convert, compress, inspect and thumbnail video files with ffmpeg.",
+  "author": {
+    "name": "rizqullahco-coder"
+  },
+  "repository": "https://github.com/rizqullahco-coder/Claude-Video",
+  "license": "MIT",
+  "keywords": ["video", "ffmpeg", "media", "audio", "gif"]
+}

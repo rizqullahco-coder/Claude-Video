@@ -1,0 +1,19 @@
+{
+  "name": "claude-video",
+  "owner": {
+    "name": "rizqullahco-coder"
+  },
+  "metadata": {
+    "description": "Claude Code plugins for working with video files."
+  },
+  "plugins": [
+    {
+      "name": "video-toolkit",
+      "source": "./plugins/video-toolkit",
+      "description": "Trim, convert, compress, inspect and thumbnail video files with ffmpeg.",
+      "version": "0.1.0",
+      "category": "media",
+      "keywords": ["video", "ffmpeg", "media", "audio", "gif"]
+    }
+  ]
+}
