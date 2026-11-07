@@ -53,3 +53,9 @@ If a step would break this rule, don't do it. Tell the user and offer the local 
   a different combo.** Do not render every combo for a video unless the user asks. This is a
   portfolio: videos should feel like one family, not identical.
 - Only produce the number of videos the user asked for.
+
+## Delivery (how finished work is sent to the user)
+- **Do not upload to Google Drive** unless the user asks.
+- **Videos:** send the `.mp4` directly in the chat (no zip). Include its thumbnail only if useful.
+- **Posters:** **one** poster → send the `.png`; **more than one** (e.g. a carousel) → send a single `.zip`
+  of all the PNGs in slide order.
