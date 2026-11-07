@@ -8,6 +8,7 @@ import * as tella from "../lib/tella.mjs";
 import * as epidemic from "../lib/epidemic.mjs";
 import { buildComposition, render, hyperframes } from "../lib/hyperframes.mjs";
 import { parseScript, buildVoice, buildScriptComposition } from "../lib/script.mjs";
+import { buildShortsComposition } from "../lib/shorts.mjs";
 
 loadEnv();
 const [cmd, ...args] = process.argv.slice(2);
@@ -91,7 +92,8 @@ async function scriptPipeline(file) {
     const [width, height] = SIZES[fmt];
     step(`3/4 HyperFrames: ${fmt} ${width}x${height}`);
     const buildDir = path.join(work, fmt);
-    const { captions } = buildScriptComposition(buildDir, p, voice, { width, height, hasMusic: !!music });
+    const builder = p.style === "shorts" ? buildShortsComposition : buildScriptComposition;
+    const { captions } = builder(buildDir, p, voice, { width, height, hasMusic: !!music });
     fs.copyFileSync(voice.voiceFile, path.join(buildDir, "assets/voice.wav"));
     if (music) await ff.prepMusic(music, path.join(buildDir, "assets/music.mp3"));
     log(`${captions} caption beats`);
