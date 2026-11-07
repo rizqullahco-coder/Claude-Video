@@ -133,3 +133,35 @@ Sometimes building rizq looks like… 🌱 Which one is you? 👇 Build Your Riz
 - **Cover image:** use each video's thumbnail. TikTok lets you add a text cover, so use the video's hook line.
 - **First 30 to 60 minutes:** reply to every comment. Early engagement helps the algorithm push the post.
 - **Hashtags:** check `#rizco` and `#buildyourrizq` before using them. If another brand already uses them, pick something more specific.
+
+---
+
+## Poster: "The 80/20 Rule for Small Business Owners" (`projects/posters/rizco-8020`)
+
+### Instagram
+```
+20% of your effort is doing 80% of the work for your business. Do you know which 20%? 🎯
+
+The 80/20 rule, made simple:
+1️⃣ Serve your best customers
+2️⃣ Push your best sellers
+3️⃣ Find your biggest costs
+4️⃣ Fix cash flow first
+5️⃣ Cut busy work
+6️⃣ Automate the routine
+7️⃣ Review your prices
+8️⃣ Check your numbers monthly
+
+📌 Save this and come back to it at the end of the month.
+💬 Which one are you working on this week?
+
+Build Your Rizq. Don't Wait for It. 🌱
+
+#rizco #8020rule #paretoprinciple #smallbusinesstips #businessgrowth #entrepreneurtips #cashflow #buildyourrizq
+```
+
+### TikTok (photo post)
+```
+The 80/20 rule for small business 🎯 Save this! Which one are you fixing first? 👇 Build Your Rizq. Don't Wait for It.
+#8020rule #smallbusiness #businesstips #rizco
+```
