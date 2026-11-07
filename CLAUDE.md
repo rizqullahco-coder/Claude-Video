@@ -25,3 +25,19 @@ What that means in practice:
 - GSAP is bundled locally (`node_modules/gsap`, copied into `build/assets/`), with no CDN at render time.
 
 If a step would break this rule, don't do it. Tell the user and offer the local alternative.
+
+## Brand + template library (RIZQ)
+- Brand: the RIZQ logo (`brand/`): ivory, charcoal and gold. Logo on every scene plus a logo end card.
+- Default output: **portrait 9:16 for Instagram Reels / TikTok, 40–50 seconds**, Gen Z tone:
+  short, punchy, attention-grabbing text, with music and sound effects.
+- The four template + colour combos are the library to choose from (`lib/shorts.mjs`):
+  | Template | Theme |
+  |---|---|
+  | editorial-pop | ivory-gold |
+  | bold-slam | gold-pop |
+  | soft-rise | sage-luxe |
+  | karaoke-flow | blush-luxe |
+- **For each video requested, pick ONE combo at random. When making several videos at once, give each
+  a different combo.** Do not render every combo for a video unless the user asks. This is a
+  portfolio: videos should feel like one family, not identical.
+- Only produce the number of videos the user asked for.
