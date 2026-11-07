@@ -1,5 +1,9 @@
 # Claude-Video: a video editing system
 
+> **Turn a flat cut into a finished, on-brand video.** Everything runs locally through
+> HyperFrames (Chrome + FFmpeg). No render cost, and no footage leaves your machine.
+> Tella and Epidemic Sound are only used to bring files **in**. See [CLAUDE.md](CLAUDE.md).
+
 A command-line video editing pipeline that joins four tools:
 
 | Tool | What it does here |
