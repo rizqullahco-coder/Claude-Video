@@ -9,6 +9,7 @@ import * as epidemic from "../lib/epidemic.mjs";
 import { buildComposition, render, hyperframes } from "../lib/hyperframes.mjs";
 import { parseScript, buildVoice, buildScriptComposition } from "../lib/script.mjs";
 import { buildShortsComposition } from "../lib/shorts.mjs";
+import { buildSceneVoice, buildScenesComposition } from "../lib/scenes.mjs";
 
 loadEnv();
 const [cmd, ...args] = process.argv.slice(2);
@@ -119,7 +120,36 @@ async function scriptPipeline(file) {
   outs.forEach((f) => log(path.relative(ROOT, f)));
 }
 
+/** Scene mode: voice line + animated visual per scene (stats, counters, icons). */
+async function scenesPipeline(file) {
+  const { p, dir, resolve } = loadProject(file);
+  const name = p.name || path.basename(dir);
+  const work = path.join(dir, "build"), outDir = path.join(dir, "out"), buildDir = path.join(work, "vertical");
+  fs.mkdirSync(buildDir, { recursive: true });
+  step("1/3 Voiceover (local TTS)");
+  const voice = await buildSceneVoice(p, work);
+  log(`${voice.scenes.length} scenes, ${voice.total.toFixed(1)}s`);
+  step("2/3 HyperFrames");
+  const music = resolve(p.music?.file);
+  const { subtitles } = buildScenesComposition(buildDir, p, voice, { width: 1080, height: 1920, hasMusic: !!music });
+  fs.copyFileSync(voice.voiceFile, path.join(buildDir, "assets/voice.wav"));
+  if (music) await ff.prepMusic(music, path.join(buildDir, "assets/music.mp3"));
+  log(`${subtitles} subtitle beats`);
+  await hyperframes(["lint"], { cwd: buildDir }).catch(() => die("HyperFrames lint found errors (see above)."));
+  if (bool("skip-render")) return log("--skip-render: built " + path.relative(ROOT, buildDir));
+  const raw = path.join(work, `${name}-raw.mp4`);
+  await render(buildDir, raw, { quality: bool("draft") ? "draft" : p.renderQuality || "looks", fps: p.fps || 30 });
+  step("3/3 FFmpeg finish");
+  fs.mkdirSync(outDir, { recursive: true });
+  const out = path.join(outDir, `${name}.mp4`), thumb = path.join(outDir, `${name}-thumbnail.jpg`);
+  await run("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-i", raw, "-c:v", "copy", "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", out]);
+  await run("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-ss", String(p.thumbnailAt ?? 1.5), "-i", raw, "-frames:v", "1", "-q:v", "2", thumb]);
+  step("Done");
+  log(path.relative(ROOT, out)); log(path.relative(ROOT, thumb));
+}
+
 async function pipeline(file) {
+  if (loadProject(file).p.mode === "scenes") return scenesPipeline(file);
   if (loadProject(file).p.script) return scriptPipeline(file);
   const { p, dir, resolve } = loadProject(file);
   const buildDir = path.join(dir, "build"), outDir = path.join(dir, "out");
