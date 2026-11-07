@@ -1,0 +1,26 @@
+{
+  "name": "cuba-video-2",
+  "title": "Meet Cuba",
+  "script": "script.md",
+  "voice": "af_heart",
+  "voiceSpeed": 1.0,
+  "formats": ["landscape", "vertical"],
+  "brand": {
+    "name": "CUBA",
+    "tagline": "Your AI Business Agent",
+    "bg": "#0a0f1f",
+    "bg2": "#131a33",
+    "ink": "#f5f7ff",
+    "accent": "#ffb547",
+    "accent2": "#3ee0c5"
+  },
+  "intro": { "kicker": "Cuba · Your AI Business Agent", "title": "Have an idea? *Let's build it.*", "duration": 2.4 },
+  "outro": {
+    "spoken": "Cuba. Your AI Business Agent. Your vision, our support. Let's build something together.",
+    "tag": "Your vision, our support.",
+    "cta": "Let's build something together",
+    "duration": 5
+  },
+  "music": { "file": "", "volume": 0.45, "duckedVolume": 0.1 },
+  "thumbnailAt": 1.4
+}

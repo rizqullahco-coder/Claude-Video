@@ -7,6 +7,7 @@ import * as ff from "../lib/ffmpeg.mjs";
 import * as tella from "../lib/tella.mjs";
 import * as epidemic from "../lib/epidemic.mjs";
 import { buildComposition, render, hyperframes } from "../lib/hyperframes.mjs";
+import { parseScript, buildVoice, buildScriptComposition } from "../lib/script.mjs";
 
 loadEnv();
 const [cmd, ...args] = process.argv.slice(2);
@@ -29,6 +30,8 @@ Get footage & music
 Edit
   new <name>                     Create projects/<name>/project.json from the example
   run <project.json>             Full pipeline: prep → compose → render → finish
+                                 (a project with "script" runs words-to-video mode)
+     [--format landscape,vertical]  words-to-video: which canvases to render
      [--draft]                     fast low-quality render for checking
      [--skip-render]               only build the HyperFrames project
   preview <project.json>         Open the HyperFrames Studio for the built project
@@ -43,6 +46,8 @@ async function doctor() {
   const ffv = has("ffmpeg"); ok(!!ffv, "ffmpeg", ffv || "install: https://ffmpeg.org/download.html");
   ok(!!has("ffprobe"), "ffprobe");
   const hf = has("npx", ["--yes", "hyperframes@0.9.19", "--version"]); ok(!!hf, "hyperframes CLI", hf || "run: npm install");
+  const kokoro = has("python3", ["-c", "import kokoro_onnx, soundfile; print('kokoro-onnx ok')"]);
+  ok(!!kokoro, "local voiceover (words-to-video)", kokoro ? "" : "run: pip install kokoro-onnx soundfile");
   ok(!!process.env.TELLA_API_KEY, "TELLA_API_KEY", process.env.TELLA_API_KEY ? "" : "(optional – otherwise put MP4s in media/raw/)");
   ok(!!process.env.EPIDEMIC_ACCESS_KEY_ID, "EPIDEMIC_ACCESS_KEY_ID/SECRET", process.env.EPIDEMIC_ACCESS_KEY_ID ? "" : "(optional – otherwise put tracks in media/music/)");
   if (bool("full")) await hyperframes(["doctor"]);
@@ -58,7 +63,62 @@ function loadProject(file) {
   return { p, dir, resolve };
 }
 
+const SIZES = { landscape: [1920, 1080], vertical: [1080, 1920], square: [1080, 1080] };
+
+/** Words-to-video: script.md -> local TTS voice -> HyperFrames motion graphics -> FFmpeg finish. */
+async function scriptPipeline(file) {
+  const { p, dir, resolve } = loadProject(file);
+  const name = p.name || path.basename(dir);
+  const outDir = path.join(dir, "out"), work = path.join(dir, "build");
+  fs.mkdirSync(work, { recursive: true });
+
+  step("1/4 Script");
+  const sections = parseScript(fs.readFileSync(resolve(p.script), "utf8"));
+  log(`${sections.length} sections, ${sections.reduce((a, s) => a + s.lines.flat().length, 0)} sentences`);
+
+  step("2/4 Voiceover (local TTS)");
+  const voice = await buildVoice(p, sections, work);
+  log(`voice track ${voice.total.toFixed(1)}s`);
+
+  const music = resolve(p.music?.file);
+  if (music && !fs.existsSync(music)) die(`Music file not found: ${p.music.file}`);
+  log(music ? `music: ${path.relative(ROOT, music)}` : "no music (set music.file in project.json to add a track)");
+
+  const formats = flag("format") ? flag("format").split(",") : p.formats || ["landscape"];
+  const masters = [];
+  for (const fmt of formats) {
+    if (!SIZES[fmt]) die(`Unknown format ${fmt}`);
+    const [width, height] = SIZES[fmt];
+    step(`3/4 HyperFrames: ${fmt} ${width}x${height}`);
+    const buildDir = path.join(work, fmt);
+    const { captions } = buildScriptComposition(buildDir, p, voice, { width, height, hasMusic: !!music });
+    fs.copyFileSync(voice.voiceFile, path.join(buildDir, "assets/voice.wav"));
+    if (music) await ff.prepMusic(music, path.join(buildDir, "assets/music.mp3"));
+    log(`${captions} caption beats`);
+    await hyperframes(["lint"], { cwd: buildDir }).catch(() => die("HyperFrames lint found errors (see above)."));
+    if (bool("skip-render")) continue;
+    const raw = path.join(work, `${name}-${fmt}-raw.mp4`);
+    await render(buildDir, raw, { quality: bool("draft") ? "draft" : p.renderQuality || "looks", fps: p.fps || 30 });
+    masters.push([fmt, raw]);
+  }
+  if (bool("skip-render")) return log("--skip-render: compositions built in " + path.relative(ROOT, work));
+
+  step("4/4 FFmpeg finish");
+  fs.mkdirSync(outDir, { recursive: true });
+  const outs = [];
+  for (const [fmt, raw] of masters) {
+    const out = path.join(outDir, `${name}-${fmt}.mp4`);
+    await run("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-i", raw, "-c:v", "copy", "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", out]);
+    const thumb = path.join(outDir, `${name}-${fmt}-thumbnail.jpg`);
+    await run("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-ss", String(p.thumbnailAt ?? 1.2), "-i", raw, "-frames:v", "1", "-q:v", "2", thumb]);
+    outs.push(out, thumb);
+  }
+  step("Done");
+  outs.forEach((f) => log(path.relative(ROOT, f)));
+}
+
 async function pipeline(file) {
+  if (loadProject(file).p.script) return scriptPipeline(file);
   const { p, dir, resolve } = loadProject(file);
   const buildDir = path.join(dir, "build"), outDir = path.join(dir, "out");
   const name = p.name || path.basename(dir);

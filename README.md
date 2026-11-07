@@ -165,6 +165,41 @@ Your finished videos are in `projects/my-video/out/`.
 
 ---
 
+## Words to video (no footage needed)
+
+Write a script and get a finished, on-brand video: an **offline voiceover**, words that
+appear in time with the voice (they double as captions), title cards between sections,
+your logo and colours, a progress bar, and an outro. It all runs locally.
+
+One extra install for the offline voice (one time):
+
+```bash
+pip install kokoro-onnx soundfile
+```
+
+1. Make a folder `projects/<name>/` containing `script.md`:
+   ```markdown
+   ## The Hook
+   Have a *business idea* but don't know *where to start*?
+   If that sounds familiar, then *this is for you*.
+
+   ## Meet Cuba
+   Hi everyone! Today, I want to introduce you to *Cuba*.
+   ```
+   `## ...` starts a new section (it gets a title card). Put each beat on its own line.
+   `*words*` are highlighted in your accent colour.
+2. Add a `project.json` next to it. Copy `projects/cuba-video-2/project.json` and change:
+   `brand` (name, tagline, colours), `intro`, `outro` (`spoken` is read aloud over the end card),
+   `voice` (`af_heart`, `af_nova`, `am_michael`, `bm_george`, …; list them with `npx hyperframes tts --list`),
+   `formats` (`landscape`, `vertical`, `square`), and optionally `music.file`.
+3. Render:
+   ```bash
+   node bin/vedit.mjs run projects/<name>/project.json
+   ```
+   Add `--format vertical` to render a single format, or `--draft` for a quick check.
+   Results go to `projects/<name>/out/`. The voiceover is cached, so re-rendering after design
+   tweaks skips the voice step.
+
 ## Command reference
 
 ```

@@ -1,0 +1,21 @@
+{
+  "name": "cuba-video-1",
+  "title": "Be the Job Creator",
+  "script": "script.md",
+  "voice": "af_heart",
+  "voiceSpeed": 1.0,
+  "formats": ["landscape", "vertical"],
+  "brand": {
+    "name": "CUBA",
+    "tagline": "Your AI Business Agent",
+    "bg": "#0a0f1f",
+    "bg2": "#131a33",
+    "ink": "#f5f7ff",
+    "accent": "#ffb547",
+    "accent2": "#3ee0c5"
+  },
+  "intro": { "kicker": "Cuba presents", "title": "Be the *job creator*", "duration": 2.4 },
+  "outro": { "tag": "Every big business starts with a small idea.", "cta": "Start with Cuba", "duration": 5 },
+  "music": { "file": "", "volume": 0.45, "duckedVolume": 0.1 },
+  "thumbnailAt": 1.4
+}
