@@ -1,0 +1,9 @@
+node_modules/
+.env
+media/raw/*
+media/music/*
+!media/raw/.gitkeep
+!media/music/.gitkeep
+projects/*/build/
+projects/*/out/
+*.log

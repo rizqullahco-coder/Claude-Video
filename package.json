@@ -1,0 +1,24 @@
+{
+  "name": "claude-video",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Video editing pipeline: Tella recordings + Epidemic Sound music + HyperFrames motion graphics + FFmpeg finishing.",
+  "bin": {
+    "vedit": "bin/vedit.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "doctor": "node bin/vedit.mjs doctor",
+    "demo": "node bin/vedit.mjs demo",
+    "run:example": "node bin/vedit.mjs run projects/example/project.json"
+  },
+  "devDependencies": {
+    "hyperframes": "0.9.19"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "example",
+  "title": "How to Ship Faster",
+  "subtitle": "A 2-minute walkthrough",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+
+  "source": {
+    "file": "../../media/raw/demo-recording.mp4",
+    "tellaVideoId": ""
+  },
+
+  "prep": {
+    "trimStart": 0,
+    "trimEnd": 0,
+    "denoise": false
+  },
+
+  "music": {
+    "file": "../../media/music/demo-music.mp3",
+    "epidemicTrackId": "",
+    "volume": 0.5,
+    "duckedVolume": 0.12,
+    "startAt": 0
+  },
+  "voiceVolume": 1,
+
+  "brand": {
+    "bg": "#0b0b12",
+    "ink": "#ffffff",
+    "accent": "#7c5cff",
+    "font": "Inter, 'Helvetica Neue', Arial, sans-serif"
+  },
+
+  "intro": { "duration": 4 },
+  "lowerThird": { "text": "Your Name", "subtext": "Founder, Your Company", "at": 1, "duration": 4 },
+  "callouts": [
+    { "at": 5, "duration": 2.5, "text": "Step 1: Set it up" }
+  ],
+  "outro": { "duration": 5, "title": "Thanks for watching", "cta": "Subscribe for more" },
+
+  "renderQuality": "looks",
+  "export": {
+    "formats": ["landscape", "vertical", "square"],
+    "thumbnailAt": 2
+  }
+}
