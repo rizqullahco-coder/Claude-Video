@@ -1,0 +1,29 @@
+{
+  "name": "rizco-building-rizq",
+  "brandKit": "rizco",
+  "refrain": "That's building *rizq*.",
+  "caption": "✨ What does building your rizq look like right now? Share it in the comments 👇",
+  "slides": [
+    {
+      "type": "cover",
+      "top": "sometimes",
+      "big": "building rizq",
+      "bottom": "looks like…"
+    },
+    {
+      "text": "Skipping the purchase you didn't really need."
+    },
+    {
+      "text": "Tracking every expense, even the small ones."
+    },
+    {
+      "text": "Starting small instead of waiting for perfect."
+    },
+    {
+      "text": "Asking for advice before a mistake gets expensive."
+    },
+    {
+      "text": "Showing up for your idea, even on slow days."
+    }
+  ]
+}

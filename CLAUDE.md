@@ -27,7 +27,11 @@ What that means in practice:
 If a step would break this rule, don't do it. Tell the user and offer the local alternative.
 
 ## Brand kits
-- **Riz.co videos (default for this user's business content): `"brandKit": "rizco"`.**
+- **EVERY video and poster made from now on uses the Riz.co logo AND the tagline
+  "Build Your Rizq. Don't Wait for It."** (`"brandKit": "rizco"`, the default for all new work).
+  Videos: logo on every scene + logo/wordmark/tagline end card. Posters (`tools/posters.mjs`):
+  logo, `RIZ.CO` wordmark and tagline in the footer of every slide.
+- **Riz.co kit details:**
   Logo: `brand/rizco/` (black R with olive-green z; ivory and light-olive version for dark
   backgrounds; all-ink version for coloured backgrounds). End card: logo, the `RIZ.CO` wordmark,
   and the tagline **"Build Your Rizq. Don't Wait for It."** (set in `lib/brands.mjs`; leave
