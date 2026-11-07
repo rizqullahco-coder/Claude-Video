@@ -122,7 +122,6 @@
     }
   ],
   "outro": {
-    "tag": "Let Riz.co lend you a hand.",
     "cta": "DM us your budget",
     "duration": 3.4
   },
@@ -134,5 +133,6 @@
   },
   "sfxDir": "media/music/beats/d-slow",
   "sfxVolume": 0.35,
-  "thumbnailAt": 2.4
+  "thumbnailAt": 2.4,
+  "brandKit": "rizco"
 }

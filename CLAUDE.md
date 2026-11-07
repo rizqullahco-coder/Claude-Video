@@ -26,8 +26,16 @@ What that means in practice:
 
 If a step would break this rule, don't do it. Tell the user and offer the local alternative.
 
-## Brand + template library (RIZQ)
-- Brand: the RIZQ logo (`brand/`): ivory, charcoal and gold. Logo on every scene plus a logo end card.
+## Brand kits
+- **Riz.co videos (default for this user's business content): `"brandKit": "rizco"`.**
+  Logo: `brand/rizco/` (black R with olive-green z; ivory and light-olive version for dark
+  backgrounds; all-ink version for coloured backgrounds). End card: logo, the `RIZ.CO` wordmark,
+  and the tagline **"Build Your Rizq. Don't Wait for It."** (set in `lib/brands.mjs`; leave
+  `outro.tag` unset so the tagline is used), then the CTA button.
+- The older RIZQ logo (`brand/rizq-*`, `"brandKit": "rizq"`) is no longer used for Riz.co.
+
+## Template library
+- Logo on every scene plus a logo end card.
 - Default output: **portrait 9:16 for Instagram Reels / TikTok, 40–50 seconds**, Gen Z tone:
   short, punchy, attention-grabbing text, with music and sound effects.
 - The four template + colour combos are the library to choose from (`lib/shorts.mjs`):

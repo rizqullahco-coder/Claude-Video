@@ -6,39 +6,115 @@
   "voice": "af_heart",
   "voiceSpeed": 0.94,
   "ttsCacheDir": "projects/rizq-video-1-v2/tts-cache",
-  "pacing": { "sentenceGap": 0.5, "sceneLead": 0.55, "sceneHold": 1.0 },
+  "pacing": {
+    "sentenceGap": 0.5,
+    "sceneLead": 0.55,
+    "sceneHold": 1.0
+  },
   "scenes": [
     {
-      "say": ["What if you regret not trying… more than failing?"],
-      "visual": { "type": "question", "kicker": "A question for you", "lines": ["What if you regret", "*not trying*", "more than failing?"] }
+      "say": [
+        "What if you regret not trying\u2026 more than failing?"
+      ],
+      "visual": {
+        "type": "question",
+        "kicker": "A question for you",
+        "lines": [
+          "What if you regret",
+          "*not trying*",
+          "more than failing?"
+        ]
+      }
     },
     {
-      "say": ["Almost half of people who spot a good business idea never start.", "The reason? Fear of failure."],
-      "visual": { "type": "dotgrid", "value": 47, "title": "See a good business opportunity…", "caption": "…but *fear of failure* stops them.", "source": "Global Entrepreneurship Monitor 2024/25" },
+      "say": [
+        "Almost half of people who spot a good business idea never start.",
+        "The reason? Fear of failure."
+      ],
+      "visual": {
+        "type": "dotgrid",
+        "value": 47,
+        "title": "See a good business opportunity\u2026",
+        "caption": "\u2026but *fear of failure* stops them.",
+        "source": "Global Entrepreneurship Monitor 2024/25"
+      },
       "extraHold": 0.6
     },
     {
-      "say": ["Meanwhile, nearly sixty-five million young people are looking for work."],
-      "visual": { "type": "counter", "to": 64.9, "decimals": 1, "suffix": "M", "label": "young people *unemployed* worldwide", "ratio": 8, "highlight": 1, "ratioLabel": "That's about 1 in 8", "source": "ILO, Global Employment Trends for Youth 2024" },
+      "say": [
+        "Meanwhile, nearly sixty-five million young people are looking for work."
+      ],
+      "visual": {
+        "type": "counter",
+        "to": 64.9,
+        "decimals": 1,
+        "suffix": "M",
+        "label": "young people *unemployed* worldwide",
+        "ratio": 8,
+        "highlight": 1,
+        "ratioLabel": "That's about 1 in 8",
+        "source": "ILO, Global Employment Trends for Youth 2024"
+      },
       "extraHold": 1.2
     },
     {
-      "say": ["So don't wait for an opportunity.", "Create one."],
-      "visual": { "type": "statement", "lines": ["Don't wait for", "an opportunity."], "punch": "Create one." }
+      "say": [
+        "So don't wait for an opportunity.",
+        "Create one."
+      ],
+      "visual": {
+        "type": "statement",
+        "lines": [
+          "Don't wait for",
+          "an opportunity."
+        ],
+        "punch": "Create one."
+      }
     },
     {
-      "say": ["HP and Amazon both started in a garage."],
-      "visual": { "type": "garage", "cards": [{ "name": "HP", "detail": "1939 · a garage in Palo Alto" }, { "name": "Amazon", "detail": "1994 · a garage in Bellevue" }] },
+      "say": [
+        "HP and Amazon both started in a garage."
+      ],
+      "visual": {
+        "type": "garage",
+        "cards": [
+          {
+            "name": "HP",
+            "detail": "1939 \u00b7 a garage in Palo Alto"
+          },
+          {
+            "name": "Amazon",
+            "detail": "1994 \u00b7 a garage in Bellevue"
+          }
+        ]
+      },
       "extraHold": 1.0
     },
     {
-      "say": ["Every big business starts as a small idea.", "Be the job creator."],
-      "visual": { "type": "grow", "small": "a small idea", "big": "a *big* business", "finale": "Be the *job creator*." }
+      "say": [
+        "Every big business starts as a small idea.",
+        "Be the job creator."
+      ],
+      "visual": {
+        "type": "grow",
+        "small": "a small idea",
+        "big": "a *big* business",
+        "finale": "Be the *job creator*."
+      }
     }
   ],
-  "outro": { "tag": "Start small. Start now.", "cta": "Follow for more", "duration": 3.4 },
-  "music": { "file": "../../media/music/beats/b-slow/beat.wav", "startAt": 5.0, "duckedVolume": 0.2, "volume": 0.6 },
+  "outro": {
+    "cta": "Follow for more",
+    "duration": 3.4
+  },
+  "music": {
+    "file": "../../media/music/beats/b-slow/beat.wav",
+    "startAt": 5.0,
+    "duckedVolume": 0.2,
+    "volume": 0.6
+  },
   "sfxDir": "media/music/beats/b-slow",
   "sfxVolume": 0.4,
-  "thumbnailAt": 2.2
+  "thumbnailAt": 2.2,
+  "brandKit": "rizco"
 }
