@@ -1,0 +1,138 @@
+{
+  "name": "rizq-2-1-pricing",
+  "title": "Pricing & Financial Solutions",
+  "source": "Google Drive \u203a Claude-Video \u203a Marketing \u203a Video 2 \u203a 2.1",
+  "mode": "scenes",
+  "template": "karaoke-flow",
+  "theme": "blush-luxe",
+  "voice": "af_heart",
+  "voiceSpeed": 0.94,
+  "pronounce": {
+    "Riz.co": "Riz dot co"
+  },
+  "ttsCacheDir": "projects/rizq-2-1-pricing/tts-cache",
+  "pacing": {
+    "sentenceGap": 0.45,
+    "sceneLead": 0.55,
+    "sceneHold": 0.9
+  },
+  "scenes": [
+    {
+      "say": [
+        "Worried our financial solutions might be too expensive for your startup?"
+      ],
+      "visual": {
+        "type": "question",
+        "kicker": "Starting up?",
+        "lines": [
+          "Worried we're",
+          "*too expensive*",
+          "for your startup?"
+        ]
+      }
+    },
+    {
+      "say": [
+        "Worry not.",
+        "Every quotation is based on the work required, and clearly explained."
+      ],
+      "visual": {
+        "type": "receipt",
+        "title": "Your *quotation*",
+        "items": [
+          {
+            "label": "Services",
+            "note": "What's included"
+          },
+          {
+            "label": "Work required",
+            "note": "Scoped to your business"
+          },
+          {
+            "label": "Pricing",
+            "note": "Every item explained"
+          }
+        ],
+        "footer": "Clear. *Transparent.*"
+      },
+      "subtitles": true
+    },
+    {
+      "say": [
+        "Over your budget?",
+        "Share it with me. We'll explore alternatives and find a solution that fits."
+      ],
+      "visual": {
+        "type": "budget",
+        "quote": 100,
+        "budget": 64,
+        "chips": [
+          "Discuss needs",
+          "Explore alternatives",
+          "Negotiate"
+        ],
+        "fit": "Let's find a *fit*."
+      },
+      "extraHold": 0.3
+    },
+    {
+      "say": [
+        "Starting a business isn't easy.",
+        "Every dollar counts."
+      ],
+      "visual": {
+        "type": "statement",
+        "lines": [
+          "Starting a business",
+          "isn't easy."
+        ],
+        "punch": "Every dollar counts."
+      }
+    },
+    {
+      "say": [
+        "We're here to help you make better decisions, avoid unnecessary expenses, and save in the long run."
+      ],
+      "visual": {
+        "type": "checklist",
+        "title": "More than a *service*",
+        "items": [
+          "Make *better decisions*",
+          "Avoid *unnecessary* costs",
+          "*Save* in the long run"
+        ]
+      },
+      "subtitles": false,
+      "extraHold": 0.6
+    },
+    {
+      "say": [
+        "Your business journey doesn't have to be complicated.",
+        "Let Riz.co lend you a hand."
+      ],
+      "visual": {
+        "type": "statement",
+        "lines": [
+          "Your business journey",
+          "doesn't have to be",
+          "complicated."
+        ],
+        "punch": "Let us *help.*"
+      }
+    }
+  ],
+  "outro": {
+    "tag": "Let Riz.co lend you a hand.",
+    "cta": "DM us your budget",
+    "duration": 3.4
+  },
+  "music": {
+    "file": "../../media/music/beats/d-slow/beat.wav",
+    "startAt": 5.0,
+    "duckedVolume": 0.18,
+    "volume": 0.6
+  },
+  "sfxDir": "media/music/beats/d-slow",
+  "sfxVolume": 0.35,
+  "thumbnailAt": 2.4
+}

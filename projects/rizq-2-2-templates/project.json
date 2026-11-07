@@ -1,0 +1,45 @@
+{
+  "name": "rizq-2-2-excel-templates",
+  "title": "Ready-to-Use Excel Templates",
+  "source": "Google Drive › Claude-Video › Marketing › Video 2 › 2.2",
+  "mode": "scenes",
+  "template": "editorial-pop",
+  "theme": "ivory-gold",
+  "voice": "af_heart",
+  "voiceSpeed": 0.94,
+  "pronounce": { "Riz.co": "Riz dot co" },
+  "ttsCacheDir": "projects/rizq-2-2-templates/tts-cache",
+  "pacing": { "sentenceGap": 0.45, "sceneLead": 0.55, "sceneHold": 0.9 },
+  "scenes": [
+    {
+      "say": ["Starting a business, but don't know how to manage your records, calculations or finances?"],
+      "visual": { "type": "question", "kicker": "Starting a business?", "lines": ["Records.", "Calculations.", "*Finances.*", "Where do you start?"] }
+    },
+    {
+      "say": ["Don't worry.", "At Riz.co, we're building practical Excel templates to make it easier."],
+      "visual": { "type": "spreadsheet", "headers": ["Item", "Qty", "Price", "Total"], "rows": [["Product A", 10, 25, 250], ["Product B", 8, 40, 320], ["Product C", 15, 12, 180], ["Delivery", 1, 60, 60]], "totalLabel": "Total sales", "note": "Example data · template preview" },
+      "extraHold": 0.8
+    },
+    {
+      "say": ["Organise your records, handle your calculations, save time, and stay organised."],
+      "visual": { "type": "checklist", "items": ["*Organise* your records", "Handle your *calculations*", "*Save time*, less busywork", "Stay *organised*"] },
+      "subtitles": false,
+      "extraHold": 0.8
+    },
+    {
+      "say": ["You don't always need expensive software to get started.", "Sometimes, the right tools are all you need."],
+      "visual": { "type": "statement", "lines": ["You don't always need", "expensive software."], "punch": "Just the right tools." }
+    },
+    {
+      "say": ["Stay tuned. In upcoming videos, I'll introduce the templates I've prepared to help your business grow."],
+      "visual": { "type": "cards", "cards": ["Records", "Calculations", "Finances"], "badge": "Coming soon" },
+      "subtitles": true,
+      "extraHold": 0.6
+    }
+  ],
+  "outro": { "tag": "Stay tuned.", "cta": "Follow for the templates", "duration": 3.4 },
+  "music": { "file": "../../media/music/beats/a-slow/beat.wav", "startAt": 5.2, "duckedVolume": 0.18, "volume": 0.6 },
+  "sfxDir": "media/music/beats/a-slow",
+  "sfxVolume": 0.35,
+  "thumbnailAt": 2.4
+}
