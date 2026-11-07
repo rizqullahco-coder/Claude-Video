@@ -1,0 +1,45 @@
+{
+  "name": "rizq-v2-bold-slam",
+  "title": "Meet Cuba",
+  "style": "shorts",
+  "script": "../../rizq-short-2/script.md",
+  "voice": "af_heart",
+  "voiceSpeed": 1.05,
+  "formats": [
+    "vertical"
+  ],
+  "pacing": {
+    "sentenceGap": 0.1,
+    "lineGap": 0.2,
+    "sectionCard": 0.25
+  },
+  "intro": {
+    "duration": 0.15
+  },
+  "wordsPerBeat": 3,
+  "brand": {
+    "name": "RIZQ",
+    "light": "#f2efe6",
+    "dark": "#121212",
+    "gold": "#a8935e"
+  },
+  "outro": {
+    "spoken": "Cuba. Your vision, our support. Let's build something together.",
+    "kicker": "Cuba \u00b7 Your AI Business Agent",
+    "tag": "Your vision, our support.",
+    "cta": "DM us to get started",
+    "duration": 3.6
+  },
+  "music": {
+    "file": "../../../media/music/beats/b/beat.wav",
+    "startAt": 3.75,
+    "duckedVolume": 0.22,
+    "volume": 0.65
+  },
+  "sfxDir": "media/music/beats/b",
+  "sfxVolume": 0.5,
+  "thumbnailAt": 0.6,
+  "template": "bold-slam",
+  "theme": "gold-pop",
+  "ttsCacheDir": "projects/rizq-short-2/tts-cache"
+}

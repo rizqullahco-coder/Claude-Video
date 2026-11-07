@@ -1,0 +1,43 @@
+{
+  "name": "rizq-v1-editorial-pop",
+  "title": "Be the Job Creator",
+  "style": "shorts",
+  "script": "../../rizq-short-1/script.md",
+  "voice": "af_heart",
+  "voiceSpeed": 1.05,
+  "formats": [
+    "vertical"
+  ],
+  "pacing": {
+    "sentenceGap": 0.1,
+    "lineGap": 0.2,
+    "sectionCard": 0.25
+  },
+  "intro": {
+    "duration": 0.15
+  },
+  "wordsPerBeat": 3,
+  "brand": {
+    "name": "RIZQ",
+    "light": "#f2efe6",
+    "dark": "#121212",
+    "gold": "#a8935e"
+  },
+  "outro": {
+    "tag": "This could be your beginning.",
+    "cta": "Follow for more",
+    "duration": 3.6
+  },
+  "music": {
+    "file": "../../../media/music/beats/a/beat.wav",
+    "startAt": 4.0,
+    "duckedVolume": 0.22,
+    "volume": 0.65
+  },
+  "sfxDir": "media/music/beats/a",
+  "sfxVolume": 0.5,
+  "thumbnailAt": 0.6,
+  "template": "editorial-pop",
+  "theme": "ivory-gold",
+  "ttsCacheDir": "projects/rizq-short-1/tts-cache"
+}

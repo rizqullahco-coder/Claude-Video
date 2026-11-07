@@ -7,3 +7,7 @@ media/music/*
 projects/*/build/
 projects/*/out/
 *.log
+projects/*/tts-cache/
+projects/portfolio/*/build/
+projects/portfolio/*/out/
+projects/portfolio/_final/
