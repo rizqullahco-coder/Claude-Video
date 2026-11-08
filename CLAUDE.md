@@ -22,6 +22,9 @@ What that means in practice:
 - "On brand" means the `brand` block in `project.json` (colours, font, accent) plus the intro,
   lower third, callouts and outro. Keep every video consistent with it.
 - HyperFrames telemetry stays off (`HYPERFRAMES_NO_TELEMETRY=1`, set in `lib/hyperframes.mjs`).
+- **iPhone footage is often HDR (HLG).** Always tone-map it to SDR BT.709 when cutting
+  (`HDR_TO_SDR` / `isHdr` in `lib/ffmpeg.mjs`, applied automatically by `prep`). HDR-tagged footage
+  makes HyperFrames fall back to a very slow HDR render path and colours look wrong.
 - GSAP is bundled locally (`node_modules/gsap`, copied into `build/assets/`), with no CDN at render time.
 
 If a step would break this rule, don't do it. Tell the user and offer the local alternative.
