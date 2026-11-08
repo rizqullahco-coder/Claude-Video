@@ -145,7 +145,7 @@ const webPath = (pts) => `M${pts.map((p) => p.join(" ")).join(" L")}`;
 const html = `<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=${W}, height=${H}"/>
 <script src="assets/gsap.min.js"></script><style>${css}</style></head><body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="${TOTAL}" data-width="${W}" data-height="${H}">
-  <video id="foot" class="clip" src="assets/master.mp4" data-start="0" data-duration="${FOOT}" data-has-audio="true" data-volume="0.4" data-track-index="0"></video>
+  <video id="foot" class="clip" src="assets/master.mp4" data-start="0" data-duration="${FOOT}" data-has-audio="true" data-volume="0.18" data-track-index="0"></video>
   <img id="freezeC" class="clip" src="assets/freezeC.png" style="width:100%;height:100%;object-fit:cover" data-start="11.4" data-duration="3.4" data-track-index="1" alt=""/>
   <img id="freeze" class="clip" src="assets/freezeF.png" style="width:100%;height:100%;object-fit:cover" data-start="22.0" data-duration="${n3(FOOT - 22.0)}" data-track-index="1" alt=""/>
   <div id="shade" class="clip" data-start="0" data-duration="${FOOT}" data-track-index="1"><img class="logo" src="assets/logo-light.png" alt=""/></div>
@@ -176,8 +176,8 @@ ${capHtml}
     <div class="tag">${h(kit.tagline).replace(". ", ".<br>")}</div><div class="cta">Tag your Itchy-Man</div>
   </section>
   <div id="progress-track" class="clip" data-start="0" data-duration="${FOOT}" data-track-index="6"><div id="progress"></div></div>
-  <audio id="music1" src="assets/music.mp3" data-start="0" data-duration="22.0" data-media-start="0" data-volume="0.7" data-fade-in="0.1" data-fade-out="0.05"></audio>
-  <audio id="music2" src="assets/music.mp3" data-start="23.7" data-duration="${n3(TOTAL - 23.7)}" data-media-start="23.7" data-volume="0.75" data-fade-in="0.2" data-fade-out="1.6"></audio>
+  <audio id="music1" src="assets/music.mp3" data-start="0" data-duration="22.0" data-media-start="0" data-volume="1" data-fade-in="0.1" data-fade-out="0.05"></audio>
+  <audio id="music2" src="assets/music.mp3" data-start="23.7" data-duration="${n3(TOTAL - 23.7)}" data-media-start="23.7" data-volume="1" data-fade-in="0.2" data-fade-out="1.6"></audio>
   ${bites.map((b, i) => `<audio id="bp${i}" src="assets/pop.wav" data-start="${b}" data-duration="0.09" data-volume="0.4"></audio>`).join("\n  ")}
   <audio id="glitch" src="assets/glitch.wav" data-start="7.95" data-duration="0.5" data-volume="0.45"></audio>
   ${scanRes.map((_, i) => `<audio id="bep${i}" src="assets/beep.wav" data-start="${n3(8.3 + i * 0.5)}" data-duration="0.09" data-volume="0.4"></audio>`).join("\n  ")}
@@ -211,7 +211,7 @@ cp("media/music/beats/quirky/whoosh.wav", "whoosh.wav");
 cp(path.join(work, "master.mp4"), "master.mp4");
 cp(path.join(work, "seg/freezeF.png"), "freezeF.png");
 cp(path.join(work, "seg/freezeC.png"), "freezeC.png");
-await prepMusic(path.join(ROOT, "media/music/beats/quirky/beat.wav"), path.join(A, "music.mp3"));
+await prepMusic(path.join(ROOT, "media/music/beats/quirky/fun.wav"), path.join(A, "music.mp3"));
 fs.writeFileSync(path.join(bd, "hyperframes.json"), JSON.stringify({ paths: { blocks: "compositions", components: "compositions/components", assets: "assets" }, media: { autoProxy: true } }, null, 2));
 fs.writeFileSync(path.join(bd, "meta.json"), JSON.stringify({ id: "itchy-man", name: "Ant-Man or Spider-Man?" }, null, 2));
 await hyperframes(["lint"], { cwd: bd });
