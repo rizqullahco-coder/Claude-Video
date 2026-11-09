@@ -19,7 +19,7 @@ const caps = [
   [6.2, 8.55, "a year of hard work. *two rewards.*"], [9.2, 11.5, "first, *the green*."],
   [12.2, 14.5, "green sunburst dial"], [14.95, 17.4, "made to *catch the light*."],
   [17.75, 20.0, "automatic · day & date"], [20.45, 22.85, "*worn with pride.*"],
-  [23.6, 27.3, "then, *the cream*."], [27.95, 30.35, "cream dial · Arabic numerals"],
+  [23.6, 27.3, "then, *the cream*."], [27.95, 30.35, "cream dial · bold numbers"],
   [30.9, 33.7, "blue hands. *quietly bold.*"],
 ];
 const chapters = [[11.73, 23.07, "I", "The Green", "AL4785X1 · 41 mm"], [23.07, CLIP, "II", "The Cream", "AS9W05X1 · 42 mm"]].map(([s, e, ...r]) => [s + I, e + I, ...r]);
