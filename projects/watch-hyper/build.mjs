@@ -1,17 +1,19 @@
-// Hyper / Gen Z re-edit of the ALBA × 2 self-reward video (personal, no branding). 128 BPM grid.
+// Hyper / Gen Z re-edit of the ALBA × 2 self-reward video, with Riz.co logo + tagline. 128 BPM grid.
 // Usage: node projects/watch-hyper/build.mjs [--no-music] [--skip-render]
 import fs from "node:fs";
 import path from "node:path";
 import { hyperframes, render } from "../../lib/hyperframes.mjs";
 import { prepMusic } from "../../lib/ffmpeg.mjs";
 import { ROOT, run, escapeHtml as h, log } from "../../lib/util.mjs";
+import { brandKit } from "../../lib/brands.mjs";
+const kit = brandKit({ brandKit: "rizco" });
 
 const NO_MUSIC = process.argv.includes("--no-music");
 const work = path.join(ROOT, "projects/watch");
 const W = 1080, H = 1920, B = 60 / 128;
 const segBeats = [2, 2, 2, 2, 1, 1, 4, 2, 2, 4, 4, 2, 2, 4, 4];
 const starts = segBeats.reduce((a, b, i) => (a.push((a[i] ?? 0) + b), a), [0]).map((b) => +(b * B).toFixed(3));
-const CLIP = starts[segBeats.length], FLICK = 8 * B, END = 4 * B, TOTAL = +(CLIP + FLICK + END).toFixed(3);
+const CLIP = starts[segBeats.length], FLICK = 8 * B, END = 8 * B, TOTAL = +(CLIP + FLICK + END).toFixed(3);
 const n3 = (x) => (+x).toFixed(3);
 const gold = "#e2c27d";
 
@@ -46,7 +48,7 @@ T(`tl.fromTo("#fkq", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.2 },
 T(`tl.fromTo("#endfl", { opacity: 1 }, { opacity: 0, duration: 0.25 }, ${n3(CLIP + FLICK)});`);
 T(`tl.fromTo("#end .a", { scale: 2, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "power4.out" }, ${n3(CLIP + FLICK)});`);
 T(`tl.fromTo("#end .b", { scale: 2, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "power4.out" }, ${n3(CLIP + FLICK + B)});`);
-T(`tl.fromTo("#end .c", { opacity: 0 }, { opacity: 1, duration: 0.3 }, ${n3(CLIP + FLICK + 2 * B)});`);
+T(`tl.fromTo("#end .brand", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, ${n3(CLIP + FLICK + 2 * B)});`);
 
 const css = `
 @font-face{font-family:"Inter";font-weight:800;src:url(assets/inter-800.woff2) format("woff2")}
@@ -57,6 +59,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000;font-family
 #root{position:relative;width:100%;height:100%;overflow:hidden}
 .clip{position:absolute;inset:0}
 #foot{width:100%;height:100%;object-fit:cover}
+#vig .logo{position:absolute;top:96px;left:50%;height:58px;transform:translateX(-50%)}
 #vig{background:radial-gradient(120% 90% at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,.55) 100%)}
 .slam{display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:${Math.round(H * 0.38)}px;opacity:0;text-align:center}
 .slam .big{font-weight:800;font-size:150px;line-height:.95;letter-spacing:-0.045em;color:#fff;text-shadow:0 8px 40px rgba(0,0,0,.55);padding:0 50px}
@@ -70,7 +73,10 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000;font-family
 #end{background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff}
 #end .a{font-weight:800;font-size:150px;letter-spacing:-0.045em;line-height:.95}
 #end .b{font-family:Serif,serif;font-style:italic;font-weight:800;font-size:240px;color:${gold};line-height:1}
-#end .c{margin-top:30px;font-weight:600;font-size:34px;letter-spacing:.3em;margin-right:-.3em;color:#bbb}
+#end .brand{margin-top:60px;display:flex;flex-direction:column;align-items:center;gap:16px;opacity:0}
+#end .brand img{height:120px}
+#end .wm{font-weight:800;font-size:28px;letter-spacing:.42em;margin-right:-.42em;color:${gold}}
+#end .tg{font-family:Serif,serif;font-style:italic;font-weight:800;font-size:58px;line-height:1.1;color:#fff}
 #endfl{background:#fff;opacity:0}`;
 
 const sfx = [];
@@ -85,11 +91,11 @@ const html = `<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta 
 <script src="assets/gsap.min.js"></script><style>${css}</style></head><body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="${TOTAL}" data-width="${W}" data-height="${H}">
   <video id="foot" class="clip" src="assets/master.mp4" data-start="0" data-duration="${CLIP}" data-has-audio="true" data-volume="0" data-track-index="0"></video>
-  <div id="vig" class="clip" data-start="0" data-duration="${TOTAL}" data-track-index="1"></div>
+  <div id="vig" class="clip" data-start="0" data-duration="${n3(CLIP + FLICK)}" data-track-index="4"><img class="logo" src="assets/logo-light.png" alt=""/></div>
   ${slams.map(([k, big, tag, st], i) => `<div id="s${i}" class="clip slam ${st}" data-start="${starts[k]}" data-duration="${n3(starts[k + 1] - starts[k])}" data-track-index="2"><div class="big">${rich(big)}</div>${tag ? `<div class="tag">${h(tag)}</div>` : ""}</div>`).join("\n  ")}
   ${starts.slice(1, -1).map((t, i) => `<div id="fl${i}" class="clip flash" data-start="${n3(t)}" data-duration="0.25" data-track-index="3"></div>`).join("\n  ")}
   <section id="fk" class="clip" data-start="${n3(CLIP)}" data-duration="${n3(FLICK)}" data-track-index="0"><img id="fk-green" src="assets/green.png" alt=""/><img id="fk-cream" src="assets/cream.png" alt=""/><div id="fkl">GREEN</div><div id="fkq">or…?</div></section>
-  <section id="end" class="clip" data-start="${n3(CLIP + FLICK)}" data-duration="${n3(END)}" data-track-index="0"><div class="a">SELF-REWARD</div><div class="b">2026</div><div class="c">ALBA × 2</div></section>
+  <section id="end" class="clip" data-start="${n3(CLIP + FLICK)}" data-duration="${n3(END)}" data-track-index="0"><div class="a">SELF-REWARD</div><div class="b">2026</div><div class="brand"><img src="assets/logo-light.png" alt="Riz.co"/><div class="wm">${h(kit.wordmark)}</div><div class="tg">${h(kit.tagline).replace(". ", ".<br>")}</div></div></section>
   <div id="endfl" class="clip" data-start="${n3(CLIP + FLICK)}" data-duration="0.3" data-track-index="3"></div>
   ${sfx.join("\n  ")}
   ${NO_MUSIC ? "" : `<audio id="music" src="assets/music.mp3" data-start="0" data-duration="${TOTAL}" data-media-start="3.75" data-volume="1" data-fade-in="0.02" data-fade-out="0.8"></audio>`}
@@ -107,6 +113,7 @@ fs.mkdirSync(As, { recursive: true });
 fs.writeFileSync(path.join(bd, "index.html"), html);
 const cp = (f, t) => fs.copyFileSync(path.isAbsolute(f) ? f : path.join(ROOT, f), path.join(As, t));
 cp("node_modules/gsap/dist/gsap.min.js", "gsap.min.js");
+cp(kit.logo.lightInk, "logo-light.png");
 cp("node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2", "inter-800.woff2");
 cp("node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2", "inter-600.woff2");
 cp("node_modules/@fontsource/playfair-display/files/playfair-display-latin-800-italic.woff2", "serif-800i.woff2");
@@ -121,7 +128,7 @@ fs.writeFileSync(path.join(bd, "hyperframes.json"), JSON.stringify({ paths: { bl
 fs.writeFileSync(path.join(bd, "meta.json"), JSON.stringify({ id: "alba-hyper", name: "ALBA × 2 hyper edit" }, null, 2));
 await hyperframes(["lint"], { cwd: bd });
 if (process.argv.includes("--skip-render")) process.exit(0);
-const raw = path.join(work, "raw-hyper.mp4"), out = path.join(work, "out"), mp4 = path.join(out, `self-reward-2026-alba-hyper${NO_MUSIC ? "-no-music" : ""}.mp4`);
+const raw = path.join(work, "raw-hyper.mp4"), out = path.join(work, "out"), mp4 = path.join(out, `rizco-alba-hyper${NO_MUSIC ? "-no-music" : ""}.mp4`);
 fs.mkdirSync(out, { recursive: true });
 await render(bd, raw, { quality: "looks", fps: 30 });
 await run("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-i", raw, "-c:v", "libx264", "-preset", "slow", "-crf", "20", "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", "-af", "loudnorm=I=-15:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", mp4]);
