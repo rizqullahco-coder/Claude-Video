@@ -8,6 +8,7 @@ import numpy as np
 ap = argparse.ArgumentParser(); ap.add_argument("out"); ap.add_argument("--bpm", type=float, default=78)
 ap.add_argument("--bars", type=int, default=12); ap.add_argument("--seed", type=int, default=3)
 ap.add_argument("--groove", action="store_true", help="upbeat: four-on-the-floor kick + soft claps")
+ap.add_argument("--luxe", action="store_true", help="luxury score: darker chords, sparse low piano, no drums")
 a = ap.parse_args(); rng = np.random.default_rng(a.seed)
 SR = 48000; beat = 60 / a.bpm; bar = 4 * beat; N = int(SR * (bar * a.bars + 4))
 L = np.zeros(N); R = np.zeros(N)
@@ -55,15 +56,22 @@ def shaker():
 prog = [(48, [60, 64, 67, 71]), (45, [57, 60, 64, 67]), (41, [57, 60, 64, 69]), (43, [55, 59, 62, 67])]
 melody = [(0, 76), (1.5, 74), (2, 72), (3, 71), (4, 72), (5.5, 71), (6, 69), (7, 67),
           (8, 69), (9.5, 71), (10, 72), (11, 74), (12, 76), (13, 79), (14, 77), (15, 76)]
+if a.luxe:  # Am9 - Fmaj7 - Cmaj7/G - G6 : dark, elegant
+    prog = [(45, [57, 60, 64, 71]), (41, [53, 57, 60, 64]), (43, [55, 59, 60, 64]), (43, [55, 59, 62, 64])]
+    melody = [(0, 76), (2, 74), (3, 72), (4, 71), (6, 72), (8, 74), (10, 76), (11, 79), (12, 77), (14, 76)]
 for b in range(a.bars):
     t0 = b * bar; root, ch = prog[b % 4]
-    put(pad([midi(m) for m in ch[:3]], bar + 0.6), t0, 0.5)                       # pad
-    arp = [ch[0], ch[1], ch[2], ch[3], ch[2] + 12, ch[3], ch[2], ch[1]]
-    for k, m in enumerate(arp):                                                      # piano arpeggio
-        put(piano(midi(m)), t0 + k * beat / 2 + (0.01 if k % 2 else 0), 0.30 if k else 0.36, -0.25 + 0.07 * k)
+    put(pad([midi(m - (12 if a.luxe else 0)) for m in ch[:3]], bar + 0.6), t0, 0.62 if a.luxe else 0.5)   # pad
+    if a.luxe:                                                                       # sparse low piano
+        for k, m in enumerate([ch[0] - 12, ch[2] - 12, ch[3] - 12, ch[1]]):
+            put(piano(midi(m), 3.0), t0 + k * beat + (0.015 if k % 2 else 0), 0.34 if k == 0 else 0.26, -0.2 + 0.13 * k)
+    else:
+        arp = [ch[0], ch[1], ch[2], ch[3], ch[2] + 12, ch[3], ch[2], ch[1]]
+        for k, m in enumerate(arp):                                                  # piano arpeggio
+            put(piano(midi(m)), t0 + k * beat / 2 + (0.01 if k % 2 else 0), 0.30 if k else 0.36, -0.25 + 0.07 * k)
     if b >= 1:
         put(np.sin(2 * np.pi * midi(root - 12) * t_of(bar * 0.98)) * np.minimum(t_of(bar * 0.98) / 0.05, 1) * np.exp(-t_of(bar * 0.98) * 0.6), t0, 0.32)
-    if 2 <= b < a.bars - 1:
+    if 2 <= b < a.bars - 1 and not a.luxe:
         if a.groove:
             for q in range(4): put(kick(), t0 + q * beat, 0.5)
             if b >= 4: put(snap(), t0 + beat, 0.06, 0.1); put(snap(), t0 + 3 * beat, 0.06, -0.1)
