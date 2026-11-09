@@ -10,7 +10,7 @@ const kit = brandKit({ brandKit: "rizco" });
 
 const NO_MUSIC = process.argv.includes("--no-music");
 const work = path.join(ROOT, "projects/watch");
-const W = 1080, H = 1920, B = 60 / 128;
+const W = 1080, H = 1920, B = 60 / 125; // "Jomblo Happy" (Gamma1) is 125 BPM
 const segBeats = [2, 2, 2, 2, 1, 1, 4, 2, 2, 4, 4, 2, 2, 4, 4];
 const starts = segBeats.reduce((a, b, i) => (a.push((a[i] ?? 0) + b), a), [0]).map((b) => +(b * B).toFixed(3));
 const CLIP = starts[segBeats.length], FLICK = 8 * B, END = 8 * B, TOTAL = +(CLIP + FLICK + END).toFixed(3);
@@ -98,7 +98,7 @@ const html = `<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta 
   <section id="end" class="clip" data-start="${n3(CLIP + FLICK)}" data-duration="${n3(END)}" data-track-index="0"><div class="a">SELF-REWARD</div><div class="b">2026</div><div class="brand"><img src="assets/logo-light.png" alt="Riz.co"/><div class="wm">${h(kit.wordmark)}</div><div class="tg">${h(kit.tagline).replace(". ", ".<br>")}</div></div></section>
   <div id="endfl" class="clip" data-start="${n3(CLIP + FLICK)}" data-duration="0.3" data-track-index="3"></div>
   ${sfx.join("\n  ")}
-  ${NO_MUSIC ? "" : `<audio id="music" src="assets/music.mp3" data-start="0" data-duration="${TOTAL}" data-media-start="3.75" data-volume="1" data-fade-in="0.02" data-fade-out="0.8"></audio>`}
+  ${NO_MUSIC ? "" : `<audio id="music" src="assets/music.mp3" data-start="0" data-duration="${TOTAL}" data-media-start="3.84" data-volume="1" data-fade-in="0.02" data-fade-out="0.8"></audio>`}
 </div>
 <script>
   window.__timelines = window.__timelines || {};
@@ -123,7 +123,7 @@ cp("media/music/beats/quirky/pop.wav", "pop.wav");
 cp(path.join(work, "master-hyper.mp4"), "master.mp4");
 cp(path.join(work, "seg/green.png"), "green.png");
 cp(path.join(work, "seg/cream.png"), "cream.png");
-if (!NO_MUSIC) await prepMusic(path.join(ROOT, "media/music/beats/quirky/hype.wav"), path.join(As, "music.mp3"));
+if (!NO_MUSIC) await prepMusic(path.join(ROOT, "media/music/beats/quirky/hype125.wav"), path.join(As, "music.mp3"));
 fs.writeFileSync(path.join(bd, "hyperframes.json"), JSON.stringify({ paths: { blocks: "compositions", components: "compositions/components", assets: "assets" }, media: { autoProxy: true } }, null, 2));
 fs.writeFileSync(path.join(bd, "meta.json"), JSON.stringify({ id: "alba-hyper", name: "ALBA × 2 hyper edit" }, null, 2));
 await hyperframes(["lint"], { cwd: bd });
