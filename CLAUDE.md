@@ -34,6 +34,8 @@ If a step would break this rule, don't do it. Tell the user and offer the local 
   "Build Your Rizq. Don't Wait for It."** (`"brandKit": "rizco"`, the default for all new work).
   Videos: logo on every scene + logo/wordmark/tagline end card. Posters (`tools/posters.mjs`):
   logo, `RIZ.CO` wordmark and tagline in the footer of every slide.
+- **Exception: personal videos.** When the user says a video is personal / "just my video", use
+  **no Riz.co branding at all** (no logo, wordmark, tagline or brand end card).
 - **Riz.co kit details:**
   Logo: `brand/rizco/` (black R with olive-green z; ivory and light-olive version for dark
   backgrounds; all-ink version for coloured backgrounds). End card: logo, the `RIZ.CO` wordmark,

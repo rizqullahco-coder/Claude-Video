@@ -1,4 +1,4 @@
-// Luxury watch unboxing Reel (9:16, ~41s). Template: karaoke-flow · blush-luxe (random pick).
+// Personal (no brand): self-reward 2026 watch unboxing Reel (9:16, ~41s). Template: karaoke-flow · blush-luxe (random pick).
 // Footage (personal, git-ignored) pre-cut, graded and dissolved into projects/watch/master.mp4.
 import fs from "node:fs";
 import path from "node:path";
@@ -16,9 +16,9 @@ const n3 = (x) => (+x).toFixed(3);
 const rich = (s) => h(s).replace(/\*([^*]+)\*([.,!?…]*)/g, "<em>$1</em>$2");
 
 const caps = [
-  [6.2, 8.55, "two boxes. *one decision.*"], [9.2, 11.5, "first, *the green*."],
+  [6.2, 8.55, "a year of hard work. *two rewards.*"], [9.2, 11.5, "first, *the green*."],
   [12.2, 14.5, "green sunburst dial"], [14.95, 17.4, "made to *catch the light*."],
-  [17.75, 20.0, "automatic · day & date"], [20.45, 22.85, "*on the wrist.*"],
+  [17.75, 20.0, "automatic · day & date"], [20.45, 22.85, "*worn with pride.*"],
   [23.6, 27.3, "then, *the cream*."], [27.95, 30.35, "cream dial · Arabic numerals"],
   [30.9, 33.7, "blue hands. *quietly bold.*"],
 ];
@@ -68,7 +68,7 @@ T(`tl.fromTo("#q .q2", { opacity: 0 }, { opacity: 1, duration: 0.6 }, ${n3(FOOT 
 T(`tl.fromTo(".tagL, .tagR", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.15 }, ${n3(FOOT + 0.9)});`);
 // end card
 T(`tl.fromTo("#outro", { opacity: 0 }, { opacity: 1, duration: 0.6 }, ${n3(FOOT + SPLIT)});`);
-T(`tl.fromTo("#outro img, #outro .wordmark, #outro .tag, #outro .cta", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" }, ${n3(FOOT + SPLIT + 0.3)});`);
+T(`tl.fromTo("#outro .wordmark, #outro .tag, #outro .cta", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" }, ${n3(FOOT + SPLIT + 0.3)});`);
 
 const css = `
 @font-face{font-family:"Inter";font-weight:600;src:url(assets/inter-600.woff2) format("woff2")}
@@ -118,30 +118,31 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000;font-family
 #outro img{height:170px}
 #outro .wordmark{font-family:Inter,sans-serif;font-weight:600;font-size:30px;letter-spacing:.45em;margin-right:-.45em;color:${gold}}
 #outro .tag{font-style:italic;font-weight:600;font-size:72px;line-height:1.1}
-#outro .cta{font-family:Inter,sans-serif;font-weight:600;font-size:32px;letter-spacing:.08em;color:${ink};background:${gold};padding:18px 46px;border-radius:99px}`;
+#outro .cta{font-family:Inter,sans-serif;font-weight:600;font-size:26px;letter-spacing:.3em;margin-right:-.3em;color:${gold};border-top:1px solid ${gold};padding-top:26px;margin-top:10px}`;
 
 const html = `<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=${W}, height=${H}"/>
 <script src="assets/gsap.min.js"></script><style>${css}</style></head><body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="${TOTAL}" data-width="${W}" data-height="${H}">
   <section id="intro" class="clip" data-start="0" data-duration="${n3(I + 0.5)}" data-track-index="5">
     <div class="ibrand">ALBA</div><div class="iline"></div>
-    <div class="imodels">AL4785X1 &nbsp;·&nbsp; AS9W05X1</div><div class="isub">the unboxing</div>
+    <div class="imodels">AL4785X1 &nbsp;·&nbsp; AS9W05X1</div><div class="isub">self-reward · 2026</div>
     <div id="isweep"></div>
   </section>
   <video id="foot" class="clip" src="assets/master.mp4" data-start="${I}" data-duration="${CLIP}" data-has-audio="true" data-volume="0.22" data-track-index="0"></video>
   ${sweeps.map((t, i) => `<div id="sw${i}" class="clip sweep" data-start="${t}" data-duration="1.5" data-track-index="1"></div>`).join("\n  ")}
-  <div id="shade" class="clip" data-start="${I}" data-duration="${CLIP}" data-track-index="2"><img class="logo" src="assets/logo-light.png" alt=""/></div>
-  <div id="title" class="clip" data-start="${n3(0.5 + I)}" data-duration="5.2" data-track-index="3"><div class="t1">Unboxing.</div><div class="rule"></div><div class="t2">ALBA × 2</div></div>
+  <div id="shade" class="clip" data-start="${I}" data-duration="${CLIP}" data-track-index="2"></div>
+  <div id="title" class="clip" data-start="${n3(0.5 + I)}" data-duration="5.2" data-track-index="3"><div class="t1">Earned.</div><div class="rule"></div><div class="t2">NOT GIVEN</div></div>
   ${chapters.map(([s, e, n, name, spec], i) => `<div id="ch${i}" class="clip chap" data-start="${s}" data-duration="4.2" data-track-index="3"><div class="num">${n}</div><div class="line"></div><div class="name">${h(name)}</div><div class="spec">${h(spec)}</div></div>`).join("\n  ")}
 ${capHtml}
   <section id="split" class="clip" data-start="${FOOT}" data-duration="${SPLIT}" data-track-index="0">
     <div id="sg"><img src="assets/green.png" alt=""/></div><div id="sc"><img src="assets/cream.png" alt=""/></div>
     <div class="tagL">GREEN</div><div class="tagR">CREAM</div>
   </section>
-  <div id="q" class="clip" data-start="${FOOT}" data-duration="${SPLIT}" data-track-index="3"><div class="q1">green or cream?</div><div class="q2">TELL ME BELOW</div></div>
+  <div id="q" class="clip" data-start="${FOOT}" data-duration="${SPLIT}" data-track-index="3"><div class="q1">green or cream?</div><div class="q2">WHICH ONE FIRST</div></div>
   <section id="outro" class="clip" data-start="${n3(FOOT + SPLIT)}" data-duration="${END}" data-track-index="0">
-    <img src="assets/logo-light.png" alt="Riz.co"/><div class="wordmark">${h(kit.wordmark)}</div>
-    <div class="tag">${h(kit.tagline).replace(". ", ".<br>")}</div><div class="cta">Follow for more</div>
+    <div class="wordmark">SELF-REWARD · 2026</div>
+    <div class="tag">for every late night<br>that built the business.</div>
+    <div class="cta">ALBA &nbsp;AL4785X1 · AS9W05X1</div>
   </section>
   <div id="progress-track" class="clip" data-start="${I}" data-duration="${n3(CLIP + SPLIT)}" data-track-index="4"><div id="progress"></div></div>
   <audio id="music" src="assets/music.mp3" data-start="0" data-duration="${TOTAL}" data-media-start="0" data-volume="1" data-fade-in="0.4" data-fade-out="2.8"></audio>
@@ -161,16 +162,15 @@ const cp = (f, t) => fs.copyFileSync(path.isAbsolute(f) ? f : path.join(ROOT, f)
 cp("node_modules/gsap/dist/gsap.min.js", "gsap.min.js");
 cp("node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2", "inter-600.woff2");
 for (const [w, s, t] of [[500, "normal", "g-500"], [600, "italic", "g-600i"], [500, "italic", "g-500i"]]) cp(`node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-${w}-${s}.woff2`, `${t}.woff2`);
-cp(kit.logo.lightInk, "logo-light.png");
 cp(path.join(work, "master.mp4"), "master.mp4");
 cp(path.join(work, "seg/green.png"), "green.png");
 cp(path.join(work, "seg/cream.png"), "cream.png");
 await prepMusic(path.join(ROOT, "media/music/beats/luxury/luxe.wav"), path.join(A, "music.mp3"));
 fs.writeFileSync(path.join(bd, "hyperframes.json"), JSON.stringify({ paths: { blocks: "compositions", components: "compositions/components", assets: "assets" }, media: { autoProxy: true } }, null, 2));
-fs.writeFileSync(path.join(bd, "meta.json"), JSON.stringify({ id: "alba-unboxing", name: "ALBA × 2 unboxing" }, null, 2));
+fs.writeFileSync(path.join(bd, "meta.json"), JSON.stringify({ id: "alba-self-reward-2026", name: "Self-reward 2026 · ALBA × 2" }, null, 2));
 await hyperframes(["lint"], { cwd: bd });
 if (process.argv.includes("--skip-render")) process.exit(0);
-const raw = path.join(work, "raw-render.mp4"), out = path.join(work, "out"), mp4 = path.join(out, "alba-unboxing.mp4");
+const raw = path.join(work, "raw-render.mp4"), out = path.join(work, "out"), mp4 = path.join(out, "self-reward-2026-alba.mp4");
 fs.mkdirSync(out, { recursive: true });
 await render(bd, raw, { quality: "looks", fps: 30 });
 await run("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-i", raw, "-c:v", "libx264", "-preset", "slow", "-crf", "20", "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", mp4]);
