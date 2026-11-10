@@ -24,7 +24,7 @@ const S = [
   { ms: "Aku tidak berhenti berharap, tetapi aku belajar untuk tidak *menggenggam* sesuatu yang belum tentu milikku.", bars: 2 },
   { ms: "Jika benar *Aida* jodoh yang Engkau tetapkan untukku, Ya Allah, satukanlah kami melalui jalan yang *paling indah*.", bars: 2, img: "illo" },
   { ms: "In shaa Allah, aku percaya pada *aturan-Mu*.", bars: 1.5, big: true, img: "photo" },
-  { kind: "end", bars: 1.5, img: "photo" },
+  { kind: "end", bars: 1.5 },
 ];
 let t = 0;
 for (const s of S) { s.start = +(t * BAR).toFixed(3); s.dur = +(s.bars * BAR).toFixed(3); t += s.bars; }
@@ -87,6 +87,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#0a1512;font-fam
 #sl7 .bgimg{object-fit:contain;background:#f7f0e0}
 .imshade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,14,12,.15) 0%,rgba(7,14,12,.2) 40%,rgba(7,14,12,.88) 72%,rgba(7,14,12,.95) 100%)}
 .withimg .ms{font-size:56px;text-shadow:0 4px 24px rgba(0,0,0,.5)}
+.end{background:#000}
 .end .box{gap:26px}
 .names{font-style:italic;font-weight:600;font-size:120px;line-height:1}
 .heart{font-size:64px}
