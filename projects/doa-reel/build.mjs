@@ -23,7 +23,7 @@ const S = [
   { ms: "Sebelum mengejar bahagia bersama manusia, ada hubungan yang lebih utama untuk aku perbaiki: *hubungan dengan Allah*.", bars: 2 },
   { ms: "Aku tidak berhenti berharap, tetapi aku belajar untuk tidak *menggenggam* sesuatu yang belum tentu milikku.", bars: 2 },
   { ms: "Jika benar *Aida* jodoh yang Engkau tetapkan untukku, Ya Allah, satukanlah kami melalui jalan yang *paling indah*.", bars: 2, img: "illo" },
-  { ms: "In shaa Allah, aku percaya pada *aturan-Mu*.", bars: 1.5, big: true, img: "photo" },
+  { ms: "In shaa Allah, aku percaya pada *aturan-Mu*.", bars: 1.5, big: true },
   { kind: "end", bars: 1.5 },
 ];
 let t = 0;
@@ -121,7 +121,7 @@ cp("node_modules/@fontsource/amiri/files/amiri-arabic-700-normal.woff2", "amiri-
 for (const [w, s, n] of [[500, "normal", "g-500"], [500, "italic", "g-500i"], [600, "italic", "g-600i"]]) cp(`node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-${w}-${s}.woff2`, `${n}.woff2`);
 cp("projects/future-goal-is-you/assets-src/illustration.jpg", "illo.jpg");
 cp(path.join(work, "voice/voice-clean.wav"), "voice.wav");
-cp("projects/future-goal-is-you/assets-src/photo.jpg", "photo.jpg");
+
 if (!NO_MUSIC) await prepMusic(path.join(ROOT, "media/music/beats/luxury/hope.wav"), path.join(A, "music.mp3"));
 fs.writeFileSync(path.join(bd, "hyperframes.json"), JSON.stringify({ paths: { blocks: "compositions", components: "compositions/components", assets: "assets" }, media: { autoProxy: true } }, null, 2));
 fs.writeFileSync(path.join(bd, "meta.json"), JSON.stringify({ id: "rizq-aida-doa", name: "Rizq & Aida doa" }, null, 2));
