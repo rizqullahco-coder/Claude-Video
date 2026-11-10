@@ -15,9 +15,9 @@ const gold = "#d8b878", cream = "#f7f1e3";
 
 // slides: { ar?, tr?, en?, ms?, bars, img? }
 const S = [
-  { kind: "dua", ar: "اللَّهُمَّ إِنِّي أَسْأَلُكَ بِأَنِّي أَشْهَدُ أَنَّكَ أَنْتَ اللَّهُ", tr: "Allaahumma innee as-aluka bi annee ashhadu annaka ant-allaahu,", en: "O Allah, indeed, I ask You by my testifying that You are Allah,", bars: 2 },
-  { kind: "dua", ar: "لاَ إِلَهَ إِلاَّ أَنْتَ، الأَحَدُ، الصَّمَدُ", tr: "laa ilaaha illaa ant, al-ahad us-samad,", en: "there is none worthy of worship except You, the One, as-Samad,", bars: 2 },
-  { kind: "dua", ar: "الَّذِي لَمْ يَلِدْ، وَلَمْ يُولَدْ، وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ", tr: "alladhee lam yalid wa lam yoolad, wa lam yakullahu kufuwan ahad.", en: "who does not beget, nor was begotten, and there is none who is like Him.", bars: 2 },
+  { kind: "dua", ar: "اللَّهُمَّ إِنِّي أَسْأَلُكَ بِأَنِّي أَشْهَدُ أَنَّكَ أَنْتَ اللَّهُ", tr: "Allaahumma innee as-aluka bi annee ashhadu annaka ant-allaahu,", en: "O Allah, indeed, I ask You by my testifying that You are Allah,", bars: 2.5 },
+  { kind: "dua", ar: "لاَ إِلَهَ إِلاَّ أَنْتَ، الأَحَدُ، الصَّمَدُ", tr: "laa ilaaha illaa ant, al-ahad us-samad,", en: "there is none worthy of worship except You, the One, as-Samad,", bars: 2.875 },
+  { kind: "dua", ar: "الَّذِي لَمْ يَلِدْ، وَلَمْ يُولَدْ، وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ", tr: "alladhee lam yalid wa lam yoolad, wa lam yakullahu kufuwan ahad.", en: "who does not beget, nor was begotten, and there is none who is like Him.", bars: 2.625 },
   { ms: "Kematian itu jauh lebih *pasti* daripada sebuah pernikahan.", bars: 2, big: true },
   { ms: "Lantas, mengapa terlalu terburu-buru mengejar duduk di *pelaminan*, sedangkan duduk di antara *dua sujud* pun masih sering kita lalaikan?", bars: 2 },
   { ms: "Aku juga punya impian, harapan dan keinginan untuk membina sebuah kehidupan bersama seseorang.", bars: 2 },
@@ -105,6 +105,7 @@ const html = `<!doctype html><html lang="ms"><head><meta charset="UTF-8"/><meta 
   <div id="bg" class="clip" data-start="0" data-duration="${TOTAL}" data-track-index="0"><svg id="bgstars" viewBox="0 0 ${W} ${H}">${stars}</svg><div id="glow"></div></div>
   <div id="pulse" class="clip" data-start="0" data-duration="${TOTAL}" data-track-index="1"></div>
   ${S.map(slideHtml).join("\n  ")}
+  <audio id="voice" src="assets/voice.wav" data-start="0.25" data-duration="21.6" data-volume="1"></audio>
   ${NO_MUSIC ? "" : `<audio id="music" src="assets/music.mp3" data-start="0" data-duration="${TOTAL}" data-media-start="0" data-volume="0.9" data-fade-in="1.5" data-fade-out="3"></audio>`}
 </div>
 <script>
@@ -124,6 +125,7 @@ cp("node_modules/@fontsource/amiri/files/amiri-arabic-400-normal.woff2", "amiri-
 cp("node_modules/@fontsource/amiri/files/amiri-arabic-700-normal.woff2", "amiri-ar-700.woff2");
 for (const [w, s, n] of [[500, "normal", "g-500"], [500, "italic", "g-500i"], [600, "italic", "g-600i"]]) cp(`node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-${w}-${s}.woff2`, `${n}.woff2`);
 cp("projects/future-goal-is-you/assets-src/illustration.jpg", "illo.jpg");
+cp(path.join(work, "voice/voice-clean.wav"), "voice.wav");
 cp("projects/future-goal-is-you/assets-src/photo.jpg", "photo.jpg");
 if (!NO_MUSIC) await prepMusic(path.join(ROOT, "media/music/beats/luxury/doa-pad.wav"), path.join(A, "music.mp3"));
 fs.writeFileSync(path.join(bd, "hyperframes.json"), JSON.stringify({ paths: { blocks: "compositions", components: "compositions/components", assets: "assets" }, media: { autoProxy: true } }, null, 2));
@@ -131,8 +133,8 @@ fs.writeFileSync(path.join(bd, "meta.json"), JSON.stringify({ id: "rizq-aida-doa
 log(`total ${TOTAL}s, ${t} bars`);
 await hyperframes(["lint"], { cwd: bd });
 if (process.argv.includes("--skip-render")) process.exit(0);
-const raw = path.join(work, "raw.mp4"), out = path.join(work, "out"), mp4 = path.join(out, `rizq-aida-doa${NO_MUSIC ? "-no-music" : ""}.mp4`);
+const raw = path.join(work, "raw.mp4"), out = path.join(work, "out"), mp4 = path.join(out, `rizq-aida-doa${NO_MUSIC ? "-with-voice" : "-voice-music"}.mp4`);
 fs.mkdirSync(out, { recursive: true });
 await render(bd, raw, { quality: "looks", fps: 30 });
-await run("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-i", raw, "-c:v", "libx264", "-preset", "slow", "-crf", "20", "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", ...(NO_MUSIC ? ["-c:a", "aac", "-b:a", "128k"] : ["-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000"]), "-movflags", "+faststart", mp4]);
+await run("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-i", raw, "-c:v", "libx264", "-preset", "slow", "-crf", "20", "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", ...(NO_MUSIC ? ["-c:a", "aac", "-b:a", "192k", "-ar", "48000"] : ["-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000"]), "-movflags", "+faststart", mp4]);
 log("RENDER COMPLETE " + path.relative(ROOT, mp4));
