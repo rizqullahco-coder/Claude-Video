@@ -9,6 +9,7 @@ ap = argparse.ArgumentParser(); ap.add_argument("out"); ap.add_argument("--bpm",
 ap.add_argument("--bars", type=int, default=12); ap.add_argument("--seed", type=int, default=3)
 ap.add_argument("--groove", action="store_true", help="upbeat: four-on-the-floor kick + soft claps")
 ap.add_argument("--luxe", action="store_true", help="luxury score: darker chords, sparse low piano, no drums")
+ap.add_argument("--soft", action="store_true", help="soft & hopeful: major chords, piano + pad + bells, no drums")
 a = ap.parse_args(); rng = np.random.default_rng(a.seed)
 SR = 48000; beat = 60 / a.bpm; bar = 4 * beat; N = int(SR * (bar * a.bars + 4))
 L = np.zeros(N); R = np.zeros(N)
@@ -71,7 +72,7 @@ for b in range(a.bars):
             put(piano(midi(m)), t0 + k * beat / 2 + (0.01 if k % 2 else 0), 0.30 if k else 0.36, -0.25 + 0.07 * k)
     if b >= 1:
         put(np.sin(2 * np.pi * midi(root - 12) * t_of(bar * 0.98)) * np.minimum(t_of(bar * 0.98) / 0.05, 1) * np.exp(-t_of(bar * 0.98) * 0.6), t0, 0.32)
-    if 2 <= b < a.bars - 1 and not a.luxe:
+    if 2 <= b < a.bars - 1 and not a.luxe and not a.soft:
         if a.groove:
             for q in range(4): put(kick(), t0 + q * beat, 0.5)
             if b >= 4: put(snap(), t0 + beat, 0.06, 0.1); put(snap(), t0 + 3 * beat, 0.06, -0.1)

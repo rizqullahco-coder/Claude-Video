@@ -19,18 +19,12 @@ const S = [
   { kind: "dua", ar: "لاَ إِلَهَ إِلاَّ أَنْتَ، الأَحَدُ، الصَّمَدُ", tr: "laa ilaaha illaa ant, al-ahad us-samad,", en: "there is none worthy of worship except You, the One, as-Samad,", bars: 2.875 },
   { kind: "dua", ar: "الَّذِي لَمْ يَلِدْ، وَلَمْ يُولَدْ، وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ", tr: "alladhee lam yalid wa lam yoolad, wa lam yakullahu kufuwan ahad.", en: "who does not beget, nor was begotten, and there is none who is like Him.", bars: 2.625 },
   { ms: "Kematian itu jauh lebih *pasti* daripada sebuah pernikahan.", bars: 2, big: true },
-  { ms: "Lantas, mengapa terlalu terburu-buru mengejar duduk di *pelaminan*, sedangkan duduk di antara *dua sujud* pun masih sering kita lalaikan?", bars: 2 },
-  { ms: "Aku juga punya impian, harapan dan keinginan untuk membina sebuah kehidupan bersama seseorang.", bars: 2 },
-  { ms: "Namun, aku sedar bahawa sebelum mengejar kebahagiaan bersama manusia, ada hubungan yang lebih utama untuk aku perbaiki, iaitu *hubungan dengan Allah*.", bars: 2 },
-  { ms: "Aku mahu terus membina kehidupan, mengejar cita-cita, memperbaiki diri dan menjadi insan yang lebih baik.", bars: 2 },
-  { ms: "Bukan bermakna aku berhenti berharap, tetapi aku sedang belajar untuk tidak terlalu *menggenggam* sesuatu yang belum tentu menjadi milikku.", bars: 2 },
-  { ms: "Aku percaya, Allah tidak pernah mengecewakan hamba-Nya yang benar-benar *bertawakal* kepada-Nya.", bars: 2 },
-  { ms: "Mungkin apa yang aku doakan belum menjadi kenyataan, mungkin juga jalannya tidak seperti yang aku bayangkan. Namun, aku yakin setiap ketentuan-Nya mempunyai *hikmah* tersendiri.", bars: 3 },
-  { ms: "Aku akan terus berusaha, terus berdoa dan terus berharap. Kerana aku mahu membina kehidupan yang bukan sekadar indah di dunia, tetapi juga mendapat *reda Allah* di akhirat.", bars: 3 },
-  { ms: "Dan jika benar *Aida* adalah jodoh yang telah Engkau tetapkan untukku, Ya Allah, aku serahkan hati kami kepada-Mu.", bars: 2, img: "illo" },
-  { ms: "Peliharalah kami, perbaikilah diri kami dan jika tiba waktunya, satukanlah kami melalui jalan yang *paling indah*, dengan cara yang tidak pernah kami sangka.", bars: 2, img: "illo" },
-  { ms: "In shaa Allah, aku percaya pada *aturan-Mu*, Ya Allah.", bars: 2, big: true, img: "photo" },
-  { kind: "end", bars: 2, img: "photo" },
+  { ms: "Mengapa terburu-buru mengejar *pelaminan*, sedangkan duduk di antara *dua sujud* pun masih kita lalaikan?", bars: 2 },
+  { ms: "Sebelum mengejar bahagia bersama manusia, ada hubungan yang lebih utama untuk aku perbaiki: *hubungan dengan Allah*.", bars: 2 },
+  { ms: "Aku tidak berhenti berharap, tetapi aku belajar untuk tidak *menggenggam* sesuatu yang belum tentu milikku.", bars: 2 },
+  { ms: "Jika benar *Aida* jodoh yang Engkau tetapkan untukku, Ya Allah, satukanlah kami melalui jalan yang *paling indah*.", bars: 2, img: "illo" },
+  { ms: "In shaa Allah, aku percaya pada *aturan-Mu*.", bars: 1.5, big: true, img: "photo" },
+  { kind: "end", bars: 1.5, img: "photo" },
 ];
 let t = 0;
 for (const s of S) { s.start = +(t * BAR).toFixed(3); s.dur = +(s.bars * BAR).toFixed(3); t += s.bars; }
@@ -90,7 +84,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#0a1512;font-fam
 .ms em,.names em{font-style:italic;font-weight:600;color:${gold}}
 .withimg{align-items:flex-end;padding-bottom:300px}
 .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-#sl12 .bgimg,#sl13 .bgimg{object-fit:contain;background:#f7f0e0}
+#sl7 .bgimg{object-fit:contain;background:#f7f0e0}
 .imshade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,14,12,.15) 0%,rgba(7,14,12,.2) 40%,rgba(7,14,12,.88) 72%,rgba(7,14,12,.95) 100%)}
 .withimg .ms{font-size:56px;text-shadow:0 4px 24px rgba(0,0,0,.5)}
 .end .box{gap:26px}
@@ -106,7 +100,7 @@ const html = `<!doctype html><html lang="ms"><head><meta charset="UTF-8"/><meta 
   <div id="pulse" class="clip" data-start="0" data-duration="${TOTAL}" data-track-index="1"></div>
   ${S.map(slideHtml).join("\n  ")}
   <audio id="voice" src="assets/voice.wav" data-start="0.25" data-duration="21.6" data-volume="1"></audio>
-  ${NO_MUSIC ? "" : `<audio id="music" src="assets/music.mp3" data-start="0" data-duration="${TOTAL}" data-media-start="0" data-volume="0.9" data-fade-in="1.5" data-fade-out="3"></audio>`}
+  ${NO_MUSIC ? "" : `<audio id="music" src="assets/music.mp3" data-start="${n3(S[3].start)}" data-duration="${n3(TOTAL - S[3].start)}" data-media-start="0" data-volume="0.55" data-fade-in="1.6" data-fade-out="2.5"></audio>`}
 </div>
 <script>
   window.__timelines = window.__timelines || {};
@@ -127,13 +121,13 @@ for (const [w, s, n] of [[500, "normal", "g-500"], [500, "italic", "g-500i"], [6
 cp("projects/future-goal-is-you/assets-src/illustration.jpg", "illo.jpg");
 cp(path.join(work, "voice/voice-clean.wav"), "voice.wav");
 cp("projects/future-goal-is-you/assets-src/photo.jpg", "photo.jpg");
-if (!NO_MUSIC) await prepMusic(path.join(ROOT, "media/music/beats/luxury/doa-pad.wav"), path.join(A, "music.mp3"));
+if (!NO_MUSIC) await prepMusic(path.join(ROOT, "media/music/beats/luxury/hope.wav"), path.join(A, "music.mp3"));
 fs.writeFileSync(path.join(bd, "hyperframes.json"), JSON.stringify({ paths: { blocks: "compositions", components: "compositions/components", assets: "assets" }, media: { autoProxy: true } }, null, 2));
 fs.writeFileSync(path.join(bd, "meta.json"), JSON.stringify({ id: "rizq-aida-doa", name: "Rizq & Aida doa" }, null, 2));
 log(`total ${TOTAL}s, ${t} bars`);
 await hyperframes(["lint"], { cwd: bd });
 if (process.argv.includes("--skip-render")) process.exit(0);
-const raw = path.join(work, "raw.mp4"), out = path.join(work, "out"), mp4 = path.join(out, `rizq-aida-doa${NO_MUSIC ? "-with-voice" : "-voice-music"}.mp4`);
+const raw = path.join(work, "raw.mp4"), out = path.join(work, "out"), mp4 = path.join(out, `rizq-aida-doa${NO_MUSIC ? "-voice-only" : ""}.mp4`);
 fs.mkdirSync(out, { recursive: true });
 await render(bd, raw, { quality: "looks", fps: 30 });
 await run("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-i", raw, "-c:v", "libx264", "-preset", "slow", "-crf", "20", "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", ...(NO_MUSIC ? ["-c:a", "aac", "-b:a", "192k", "-ar", "48000"] : ["-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000"]), "-movflags", "+faststart", mp4]);
