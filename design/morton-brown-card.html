@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&family=Arimo:wght@400;700&display=block" rel="stylesheet">
+<style>html,body{margin:0;background:transparent}svg{display:block}</style></head><body>
+<svg id="defs" width="0" height="0" style="position:absolute"><defs>
+<symbol id="mb" viewBox="-6 -6 459 305" overflow="visible">
+<g fill="none" stroke-linejoin="miter" stroke-miterlimit="2" stroke-linecap="square">
+<path d="M0 0V293 M0 0L300 293 M0 0L145 293 M0 293L300 0 M145 293L300 0 M300 0V293 M145 293H447 M300 0H447 L300 293 M373 150L447 200V293"/>
+</g></symbol></defs></svg>
+<div id="cards"></div>
+<script>
+const W=722,H=412,LW=108,LH=71,xs=[1,123,246,368,491,613],ys=[1,85,169,254,339];
+let f='';
+ys.forEach((y,r)=>xs.forEach((x,c)=>{
+ const hi=(r===3&&c===4);
+ if(!hi) f+=`<use href="#mb" x="${x+0.9}" y="${y+0.9}" width="${LW}" height="${LH}" stroke="#3a463c" stroke-width="15"/>`;
+ f+=`<use href="#mb" x="${x}" y="${y}" width="${LW}" height="${LH}" stroke="${hi?'#d9edd5':'#617363'}" stroke-width="${hi?13:13}"/>`;
+}));
+const front=`<svg id="front" viewBox="0 0 ${W} ${H}" width="1050" height="600"><rect width="${W}" height="${H}" fill="#4b5b4d"/>${f}</svg>`;
+const ink='#3d4a40',grey='#555b56';
+const back=`<svg id="back" viewBox="0 0 ${W} ${H}" width="1050" height="600" font-family="Arimo">
+<rect width="${W}" height="${H}" fill="#f3f3f1"/>
+<use href="#mb" x="366" y="67" width="113" height="76" stroke="${ink}" stroke-width="10"/>
+<g font-family="Montserrat" font-size="36.5" fill="${ink}"><text x="496" y="98" textLength="165" lengthAdjust="spacing">MORTON</text>
+<text x="496" y="137" textLength="144" lengthAdjust="spacing">BROWN</text></g>
+<text x="62" y="249" font-size="26.5" font-weight="700" fill="${ink}" textLength="194" lengthAdjust="spacingAndGlyphs">JACK MORGAN</text>
+<text x="62" y="275" font-size="16" fill="${grey}" textLength="118" lengthAdjust="spacingAndGlyphs">Project Director</text>
+<path transform="translate(62,323) scale(0.5)" fill="${ink}" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+<g transform="translate(62,351)" fill="none" stroke="${ink}" stroke-width="1.4"><rect x="0.7" y="0.7" width="11" height="8.6" rx="1.2"/><path d="M1.2 1.5 6.2 5.4 11.2 1.5"/></g>
+<g font-size="16.5" fill="${grey}"><text x="84" y="335" textLength="109" lengthAdjust="spacingAndGlyphs">07517 005017</text>
+<text x="84" y="361" textLength="194" lengthAdjust="spacingAndGlyphs">jack@mortonbrown.co.uk</text>
+<text x="660" y="361" text-anchor="end" textLength="188" lengthAdjust="spacingAndGlyphs" fill="#62675f">www.mortonbrown.co.uk</text></g>
+<rect x="472" y="400" width="188" height="12" fill="#4b5b4d"/></svg>`;
+document.getElementById('cards').innerHTML=front+back;
+</script></body></html>
