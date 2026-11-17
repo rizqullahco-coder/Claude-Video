@@ -23,3 +23,7 @@ projects/doa/
 projects/sabar-reel/build/
 projects/sabar-reel/out/
 projects/sabar-reel/raw.mp4
+
+# HyperFrames temporary render folders
+**/.raw.hf-transaction-*/
+**/work-*-*/
