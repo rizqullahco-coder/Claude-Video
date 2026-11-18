@@ -1,4 +1,4 @@
-// Original sad story Reel ("Asal dia tak perlu risau"). Moody drawn backgrounds (rain, bokeh,
+// Personal (no branding): original sad story Reel ("Asal dia tak perlu risau"). Moody drawn backgrounds (rain, bokeh,
 // lamp glow, grain), serif text, slides on the bars of a 72 BPM minor piano score. Riz.co branded.
 import fs from "node:fs";
 import path from "node:path";
@@ -25,7 +25,7 @@ const S = [
 ];
 let t = 0;
 for (const s of S) { s.start = +(t * BAR).toFixed(3); s.dur = +(s.bars * BAR).toFixed(3); t += s.bars; }
-const END = 1.2 * BAR, FOOT = +(t * BAR).toFixed(3), TOTAL = +(FOOT + END).toFixed(3);
+const END = 1.8, FOOT = +(t * BAR).toFixed(3), TOTAL = +(FOOT + END).toFixed(3);
 
 let seed = 11; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
 const fx = (s, i) => {
@@ -53,8 +53,7 @@ S.forEach((s, i) => {
   if (s.note) T(`tl.fromTo("#s${i} .hand", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 1.4, ease: "power2.out" }, ${n3(a + 2.2)});`);
 });
 T(`tl.fromTo("#progress", { scaleX: 0 }, { scaleX: 1, duration: ${FOOT}, ease: "none" }, 0);`);
-T(`tl.fromTo("#end", { opacity: 0 }, { opacity: 1, duration: 1.0 }, ${n3(FOOT)});`);
-T(`tl.fromTo("#end img, #end .wm, #end .tg", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1.0, stagger: 0.3, ease: "power2.out" }, ${n3(FOOT + 0.3)});`);
+T(`tl.fromTo("#end", { opacity: 0 }, { opacity: 1, duration: 1.8, ease: "sine.inOut" }, ${n3(FOOT - 1.2)});`);
 
 const css = `
 @font-face{font-family:"PF";font-weight:700;src:url(assets/pf-700.woff2) format("woff2")}
@@ -95,9 +94,8 @@ const html = `<!doctype html><html lang="ms"><head><meta charset="UTF-8"/><meta 
 <script src="assets/gsap.min.js"></script><style>${css}</style></head><body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="${TOTAL}" data-width="${W}" data-height="${H}">
   ${S.map(slideHtml).join("\n  ")}
-  <div id="brand" class="clip" data-start="0" data-duration="${FOOT}" data-track-index="1"><img id="logo" src="assets/logo-light.png" alt=""/></div>
   <div id="progress-track" class="clip" data-start="0" data-duration="${FOOT}" data-track-index="2"><div id="progress"></div></div>
-  <section id="end" class="clip" data-start="${n3(FOOT)}" data-duration="${n3(END)}" data-track-index="0"><img src="assets/logo-light.png" alt="Riz.co"/><div class="wm">${h(kit.wordmark)}</div><div class="tg">${h(kit.tagline).replace(". ", ".<br>")}</div></section>
+  <section id="end" class="clip" data-start="${n3(FOOT - 1.2)}" data-duration="${n3(END + 1.2)}" data-track-index="3" style="background:#000"></section>
   <audio id="music" src="assets/music.mp3" data-start="0" data-duration="${TOTAL}" data-media-start="0" data-volume="0.95" data-fade-in="1.0" data-fade-out="3"></audio>
 </div>
 <script>
@@ -118,14 +116,13 @@ cp("node_modules/@fontsource/playfair-display/files/playfair-display-latin-500-i
 cp("node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-normal.woff2", "cg-500.woff2");
 cp("node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-italic.woff2", "cg-600i.woff2");
 cp("node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2", "inter-600.woff2");
-cp(kit.logo.lightInk, "logo-light.png");
 await prepMusic(path.join(ROOT, "media/music/beats/luxury/sad.wav"), path.join(A, "music.mp3"));
 fs.writeFileSync(path.join(bd, "hyperframes.json"), JSON.stringify({ paths: { blocks: "compositions", components: "compositions/components", assets: "assets" }, media: { autoProxy: true } }, null, 2));
 fs.writeFileSync(path.join(bd, "meta.json"), JSON.stringify({ id: "asal-dia-tak-perlu-risau", name: "Asal dia tak perlu risau" }, null, 2));
 log(`total ${TOTAL}s`);
 await hyperframes(["lint"], { cwd: bd });
 if (process.argv.includes("--skip-render")) process.exit(0);
-const raw = path.join(work, "raw.mp4"), out = path.join(work, "out"), mp4 = path.join(out, "rizco-asal-dia-tak-perlu-risau.mp4");
+const raw = path.join(work, "raw.mp4"), out = path.join(work, "out"), mp4 = path.join(out, "asal-dia-tak-perlu-risau.mp4");
 fs.mkdirSync(out, { recursive: true });
 await render(bd, raw, { quality: "looks", fps: 30 });
 await run("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-i", raw, "-c:v", "libx264", "-preset", "slow", "-crf", "20", "-pix_fmt", "yuv420p", "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", mp4]);
