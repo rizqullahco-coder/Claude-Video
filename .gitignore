@@ -27,3 +27,6 @@ projects/sabar-reel/raw.mp4
 # HyperFrames temporary render folders
 **/.raw.hf-transaction-*/
 **/work-*-*/
+projects/story-reel/build/
+projects/story-reel/out/
+projects/story-reel/raw.mp4
