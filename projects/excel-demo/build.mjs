@@ -139,8 +139,8 @@ T(`tl.fromTo("#intro .it", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, d
 T(`tl.fromTo("#intro .tab", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.15, ease: "back.out(2)" }, ${n3(SC.intro[0] + 1.0)});`);
 T(`tl.fromTo("#intro .is", { opacity: 0 }, { opacity: 1, duration: 0.4 }, ${n3(SC.intro[0] + 1.9)});`);
 T(`tl.fromTo("#end .e1", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5 }, ${n3(SC.end[0] + 0.2)}); tl.fromTo("#end .e2", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5 }, ${n3(SC.end[0] + 0.9)});`);
-T(`tl.fromTo("#end img, #end .wm, #end .tg, #end .cta", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.18, ease: "power3.out" }, ${n3(SC.end[0] + 2.0)});`);
-T(`tl.to("#end .cta", { scale: 1.06, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, ${n3(SC.end[0] + 3.4)});`);
+T(`tl.fromTo("#end img, #end .wm, #end .tg", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.18, ease: "power3.out" }, ${n3(SC.end[0] + 2.0)});`);
+
 // gold wipes at scene changes
 const cuts = [SC.intro[0], SC.s1[0], SC.s3[0], SC.s4[0], SC.s5[0], SC.end[0]];
 cuts.forEach((t, i) => T(`tl.fromTo("#wp${i}", { xPercent: -101 }, { xPercent: 101, duration: 0.5, ease: "power3.inOut" }, ${n3(t - 0.25)});`));
@@ -261,7 +261,7 @@ const html = `<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta 
   ${sec("s3", SC.s3, `${logo}<div id="mon">${monthly}</div>${capHtml("s3")}<div class="exl">EXAMPLE DATA</div>`)}
   ${sec("s4", SC.s4, `${logo}<div id="rep">${report}</div>${capHtml("s4")}`)}
   ${sec("s5", SC.s5, `${logo}<div id="yr">${year}</div>${capHtml("s5")}<div class="exl">EXAMPLE DATA</div>`)}
-  ${sec("end", SC.end, `<div class="e1">Business or personal —</div><div class="e2">every dollar deserves a plan.</div><img src="assets/logo-light.png" alt="Riz.co"/><div class="wm">${h(kit.wordmark)}</div><div class="tg">${h(kit.tagline).replace(". ", ".<br>")}</div><div class="cta">DM us to get this template</div>`, "")}
+  ${sec("end", SC.end, `<div class="e1">Business or personal —</div><div class="e2">every dollar deserves a plan.</div><img src="assets/logo-light.png" alt="Riz.co"/><div class="wm">${h(kit.wordmark)}</div><div class="tg">${h(kit.tagline).replace(". ", ".<br>")}</div>`, "")}
   ${cuts.map((t, i) => `<div id="wp${i}" class="clip wipe" data-start="${n3(t - 0.25)}" data-duration="0.5" data-track-index="3"></div>`).join("\n  ")}
   <div id="progress-track" class="clip" data-start="0" data-duration="${n3(SC.end[0])}" data-track-index="4"><div id="progress"></div></div>
   ${cuts.map((t, i) => `<audio id="wh${i}" src="assets/whoosh.wav" data-start="${n3(t - 0.3)}" data-duration="0.45" data-volume="0.35"></audio>`).join("\n  ")}

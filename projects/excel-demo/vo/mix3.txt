@@ -1,0 +1,17 @@
+[0:a]aresample=48000,adelay=300:all=1[a0];
+[1:a]aresample=48000,adelay=2600:all=1[a1];
+[2:a]aresample=48000,adelay=3800:all=1[a2];
+[3:a]aresample=48000,adelay=7450:all=1[a3];
+[4:a]aresample=48000,adelay=11300:all=1[a4];
+[5:a]aresample=48000,adelay=14900:all=1[a5];
+[6:a]aresample=48000,adelay=18000:all=1[a6];
+[7:a]aresample=48000,adelay=21900:all=1[a7];
+[8:a]aresample=48000,adelay=24200:all=1[a8];
+[9:a]aresample=48000,adelay=28600:all=1[a9];
+[10:a]aresample=48000,adelay=30900:all=1[a10];
+[11:a]aresample=48000,adelay=38700:all=1[a11];
+[12:a]aresample=48000,adelay=41200:all=1[a12];
+[13:a]aresample=48000,adelay=49500:all=1[a13];
+[14:a]aresample=48000,adelay=52200:all=1[a14];
+[15:a]aresample=48000,adelay=55600:all=1[a15];
+[a0][a1][a2][a3][a4][a5][a6][a7][a8][a9][a10][a11][a12][a13][a14][a15]amix=inputs=16:normalize=0,highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=5:release=120,apad=whole_dur=60,atrim=0:60,loudnorm=I=-16:TP=-1.5:LRA=7[v]
