@@ -36,3 +36,6 @@ projects/excel-demo/build/
 projects/excel-demo/out/
 projects/excel-demo/raw.mp4
 projects/excel-demo/vo/*.wav
+projects/ai-studio-showcase/raw.mp4
+projects/ai-studio-showcase/vo/l*.wav
+projects/ai-studio-showcase/beat/
