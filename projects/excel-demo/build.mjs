@@ -17,7 +17,7 @@ const C = { bg: "#f2efe6", ink: "#121212", gold: "#a8935e", mut: "#5d5a52", card
 const fmt = (v) => v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 // ---------- timeline (seconds)
-const SC = { hook: [0, 3.6], intro: [3.6, 7.4], s1: [7.4, 18.0], s2: [18.0, 24.6], s3: [24.6, 34.8], s4: [34.8, 45.6], s5: [45.6, 51.4], end: [51.4, 57.6] };
+const SC = { hook: [0, 7.2], intro: [7.2, 11.0], s1: [11.0, 21.6], s2: [21.6, 28.2], s3: [28.2, 38.4], s4: [38.4, 49.2], s5: [49.2, 55.0], end: [55.0, 60.0] };
 const TOTAL = SC.end[1];
 const js = []; const T = (x) => js.push(x);
 const chars = (id, text) => [...text].map((ch, k) => `<span class="ch" id="${id}c${k}">${ch === " " ? "&nbsp;" : h(ch)}</span>`).join("");
@@ -52,28 +52,28 @@ rows.forEach((_, i) => T(`tl.fromTo("#r${i}", { opacity: 0, x: -20 }, { opacity:
 T(`tl.set("#r8", { opacity: 1 }, ${n3(SC.s1[0] + 1.9)});`);
 T(`tl.fromTo("#act", { opacity: 0 }, { opacity: 1, duration: 0.2 }, ${n3(SC.s1[0] + 2.1)});`);
 T(`tl.set("#act", { x: ${cx[0]}, y: ${ry(8)}, width: ${cols[0][1]} }, ${n3(SC.s1[0] + 2.0)});`);
-typeIn("t0", "9 Nov", 9.7); actAt(8, 1, 10.4); typeIn("t1", "Car Fuel", 10.6); actAt(8, 2, 11.4);
-T(`tl.fromTo("#dd", { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, duration: 0.25, ease: "power2.out", transformOrigin: "50% 0%" }, 11.7);`);
-T(`tl.set("#ddh", { y: 0 }, 11.7); tl.to("#ddh", { y: 50, duration: 0.2 }, 12.1); tl.to("#ddh", { y: 100, duration: 0.2 }, 12.5);`);
-T(`tl.to("#dd", { opacity: 0, duration: 0.15 }, 13.0); tl.fromTo("#t2", { opacity: 0 }, { opacity: 1, duration: 0.15 }, 13.05);`);
-actAt(8, 3, 13.4); typeIn("t3", "30.00", 13.6, 0.07);
-T(`tl.to("#act", { opacity: 0, duration: 0.2 }, 14.2);`);
-T(`tl.to("#sheet", { scale: 1.15, duration: 0.9, ease: "power2.inOut", transformOrigin: "94% 100%" }, 9.3);`);
-T(`tl.to("#sheet", { scale: 1.0, duration: 0.8, ease: "power2.inOut", transformOrigin: "94% 100%" }, 22.2);`);
-T(`tl.fromTo("#glow4", { opacity: 0 }, { opacity: 1, duration: 0.3, yoyo: true, repeat: 3 }, 14.4);`);
-T(`tl.fromTo("#t4", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)" }, 14.5);`);
-T(`tl.fromTo("#t5", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)" }, 15.0);`);
-T(`tl.fromTo("#callout", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(2)" }, 15.2); tl.to("#callout", { opacity: 0, duration: 0.3 }, 17.6);`);
+typeIn("t0", "9 Nov", 13.3); actAt(8, 1, 14.0); typeIn("t1", "Car Fuel", 14.2); actAt(8, 2, 15.0);
+T(`tl.fromTo("#dd", { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, duration: 0.25, ease: "power2.out", transformOrigin: "50% 0%" }, 15.3);`);
+T(`tl.set("#ddh", { y: 0 }, 15.3); tl.to("#ddh", { y: 50, duration: 0.2 }, 15.7); tl.to("#ddh", { y: 100, duration: 0.2 }, 16.1);`);
+T(`tl.to("#dd", { opacity: 0, duration: 0.15 }, 16.6); tl.fromTo("#t2", { opacity: 0 }, { opacity: 1, duration: 0.15 }, 16.7);`);
+actAt(8, 3, 17.0); typeIn("t3", "30.00", 17.2, 0.07);
+T(`tl.to("#act", { opacity: 0, duration: 0.2 }, 17.8);`);
+T(`tl.to("#sheet", { scale: 1.15, duration: 0.9, ease: "power2.inOut", transformOrigin: "94% 100%" }, 12.9);`);
+T(`tl.to("#sheet", { scale: 1.0, duration: 0.8, ease: "power2.inOut", transformOrigin: "94% 100%" }, 25.8);`);
+T(`tl.fromTo("#glow4", { opacity: 0 }, { opacity: 1, duration: 0.3, yoyo: true, repeat: 3 }, 18.0);`);
+T(`tl.fromTo("#t4", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)" }, 18.1);`);
+T(`tl.fromTo("#t5", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)" }, 18.6);`);
+T(`tl.fromTo("#callout", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(2)" }, 18.8); tl.to("#callout", { opacity: 0, duration: 0.3 }, 21.2);`);
 // scene 2
-T(`tl.fromTo("#r9", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35 }, 18.4);`);
-T(`tl.fromTo("#miss", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 18.6); tl.to("#r9 .cell", { backgroundColor: "#fbe3e0", duration: 0.3 }, 18.6);`);
-T(`tl.to("#miss", { scale: 1.08, duration: 0.35, yoyo: true, repeat: 3, ease: "sine.inOut", transformOrigin: "0% 50%" }, 19.0);`);
-T(`tl.fromTo("#stBad", { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.3 }, 18.9);`);
-T(`tl.set("#act", { x: ${cx[3]}, y: ${ry(9)}, width: ${cols[3][1]} }, 20.3); tl.to("#act", { opacity: 1, duration: 0.2 }, 20.35);`);
-typeIn("t6", "12.50", 20.6, 0.08);
-T(`tl.to("#act", { opacity: 0, duration: 0.2 }, 21.2); tl.to("#miss", { opacity: 0, duration: 0.15 }, 21.4); tl.to("#r9 .cell", { backgroundColor: "#ffffff", duration: 0.3 }, 21.4);`);
-T(`tl.fromTo("#fixed", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)" }, 21.5);`);
-T(`tl.to("#stBad", { opacity: 0, duration: 0.2 }, 21.7); tl.fromTo("#stOk", { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.3 }, 21.8);`);
+T(`tl.fromTo("#r9", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35 }, 22.0);`);
+T(`tl.fromTo("#miss", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 22.2); tl.to("#r9 .cell", { backgroundColor: "#fbe3e0", duration: 0.3 }, 22.2);`);
+T(`tl.to("#miss", { scale: 1.08, duration: 0.35, yoyo: true, repeat: 3, ease: "sine.inOut", transformOrigin: "0% 50%" }, 22.6);`);
+T(`tl.fromTo("#stBad", { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.3 }, 22.5);`);
+T(`tl.set("#act", { x: ${cx[3]}, y: ${ry(9)}, width: ${cols[3][1]} }, 23.9); tl.to("#act", { opacity: 1, duration: 0.2 }, 24.0);`);
+typeIn("t6", "12.50", 24.2, 0.08);
+T(`tl.to("#act", { opacity: 0, duration: 0.2 }, 24.8); tl.to("#miss", { opacity: 0, duration: 0.15 }, 25.0); tl.to("#r9 .cell", { backgroundColor: "#ffffff", duration: 0.3 }, 25.0);`);
+T(`tl.fromTo("#fixed", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)" }, 25.1);`);
+T(`tl.to("#stBad", { opacity: 0, duration: 0.2 }, 25.3); tl.fromTo("#stOk", { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.3 }, 25.4);`);
 
 // ---------- Scene 3: Monthly
 const inc = 2950, spent = 1122.9, saved = 700, left = inc - spent - saved;
@@ -123,8 +123,17 @@ const capHtml = (k) => `<div class="cap"><span class="cn">${caps[k][0]}</span><d
 Object.entries(caps).forEach(([k]) => { const s = SC[k][0]; T(`tl.fromTo("#${k} .cap > *", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.12, ease: "power3.out" }, ${n3(s + 0.05)});`); });
 
 // hook + intro + end
-T(`tl.fromTo("#hook .hw", { y: 50, opacity: 0, rotation: -3 }, { y: 0, opacity: 1, rotation: 0, duration: 0.35, stagger: 0.16, ease: "back.out(2.2)" }, 0.2);`);
-T(`tl.fromTo("#hook .hw em", { scale: 1.4 }, { scale: 1, duration: 0.3, ease: "back.out(3)" }, 0.9);`);
+T(`tl.fromTo("#hook .hw", { y: 50, opacity: 0, rotation: -3 }, { y: 0, opacity: 1, rotation: 0, duration: 0.35, stagger: 0.18, ease: "back.out(2.2)" }, 0.2);`);
+T(`tl.fromTo("#hook .hw em", { scale: 1.4 }, { scale: 1, duration: 0.3, ease: "back.out(3)" }, 0.75);`);
+T(`tl.fromTo("#stamp", { scale: 2.4, opacity: 0, rotation: -18 }, { scale: 1, opacity: 1, rotation: -8, duration: 0.22, ease: "power4.in" }, 2.65);`);
+T(`tl.to("#hook .hw", { opacity: 0.25, duration: 0.3 }, 2.7);`);
+T(`tl.fromTo("#hook .ph1", { x: -12 }, { x: 0, duration: 0.4, ease: "elastic.out(1, 0.3)" }, 2.87);`);
+T(`tl.to("#hook .ph1", { opacity: 0, y: -40, duration: 0.35, ease: "power2.in" }, 3.6);`);
+T(`tl.fromTo("#hook .bc", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, stagger: 0.15, ease: "back.out(1.8)" }, 3.85);`);
+T(`tl.fromTo("#hook .plus", { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(3)" }, 4.1);`);
+T(`tl.fromTo("#hook .bc.biz li", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.25, stagger: 0.12 }, 4.2);`);
+T(`tl.fromTo("#hook .bc.you li", { opacity: 0, x: 20, scale: 0.9 }, { opacity: 1, x: 0, scale: 1, duration: 0.3, stagger: 0.55, ease: "back.out(2)" }, 4.9);`);
+T(`tl.fromTo("#hook .both", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45 }, 6.2);`);
 T(`tl.fromTo("#intro .ik", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, ${n3(SC.intro[0] + 0.15)});`);
 T(`tl.fromTo("#intro .it", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)" }, ${n3(SC.intro[0] + 0.35)});`);
 T(`tl.fromTo("#intro .tab", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.15, ease: "back.out(2)" }, ${n3(SC.intro[0] + 1.0)});`);
@@ -209,7 +218,17 @@ em{font-family:Serif,serif;font-style:italic;color:${C.ink};background:linear-gr
 .ylegend i{display:inline-block;width:26px;height:26px;border-radius:6px;margin-right:10px;vertical-align:-4px}
 .proj{position:absolute;left:60px;right:60px;top:1310px;text-align:center;font-weight:600;font-size:40px;line-height:1.3;opacity:0}
 .proj b{font-weight:800}
-#hook{display:flex;flex-direction:column;justify-content:center;padding:0 90px}
+#hook .ph1{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 90px}
+#stamp{position:absolute;left:90px;top:1180px;font-weight:800;font-size:96px;letter-spacing:-0.02em;color:${C.bad};border:10px solid ${C.bad};padding:6px 30px;border-radius:14px;opacity:0;background:rgba(242,239,230,.9)}
+.ph2{position:absolute;left:60px;right:60px;top:520px;display:grid;grid-template-columns:1fr 90px 1fr;align-items:start}
+.bc{background:#fff;border-radius:22px;box-shadow:0 18px 50px rgba(60,50,30,.14);overflow:hidden;opacity:0}
+.bh{font-weight:800;font-size:34px;letter-spacing:.14em;padding:22px 26px;color:#fff}
+.biz .bh{background:${C.hdr}} .you .bh{background:${C.ok}}
+.bc ul{list-style:none;padding:12px 26px 22px}
+.bc li{font-weight:800;font-size:46px;padding:14px 0;border-bottom:1px solid ${C.line};opacity:0}
+.bc li:last-child{border:0}
+.plus{align-self:center;text-align:center;font-weight:800;font-size:90px;color:${C.gold}}
+.both{grid-column:1 / -1;margin-top:70px;text-align:center;font-weight:800;font-size:70px;letter-spacing:-0.03em;line-height:1.1;opacity:0}
 .hw{font-weight:800;font-size:132px;letter-spacing:-0.045em;line-height:1.02;opacity:0;display:block}
 #intro{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:34px;padding:0 70px}
 .ik{font-weight:800;font-size:30px;letter-spacing:.3em;color:${C.gold}}
@@ -232,19 +251,21 @@ const sec = (id, [a, b], inner, cls = "scene") => `<section id="${id}" class="cl
 const html = `<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=${W}, height=${H}"/>
 <script src="assets/gsap.min.js"></script><style>${css}</style></head><body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="${TOTAL}" data-width="${W}" data-height="${H}">
-  ${sec("hook", SC.hook, `${logo}<span class="hw">Where did</span><span class="hw">your money</span><span class="hw"><em>go</em> this</span><span class="hw">month?</span>`)}
-  ${sec("intro", SC.intro, `${logo}<div class="ik">RIZ.CO TEMPLATE</div><div class="it">Income &amp; Expenses <em>Tracker</em></div><div class="tabs">${["Transactions", "Monthly", "Report", "Year"].map((t) => `<span class="tab">${t}</span>`).join("")}</div><div class="is">Excel · ready to use · fills itself</div>`)}
+  ${sec("hook", SC.hook, `${logo}<div class="ph1"><span class="hw">Finance is</span><span class="hw">only for</span><span class="hw"><em>business?</em></span><div id="stamp">THINK AGAIN.</div></div>
+    <div class="ph2"><div class="bc biz"><div class="bh">BUSINESS</div><ul><li>Sales</li><li>Stock</li><li>Cash flow</li></ul></div><div class="plus">+</div><div class="bc you"><div class="bh">YOU</div><ul><li>Salary</li><li>Bills</li><li>Savings</li></ul></div>
+    <div class="both">Money matters — <em>for both.</em></div></div>`)}
+  ${sec("intro", SC.intro, `${logo}<div class="ik">RIZ.CO TEMPLATE</div><div class="it">Income &amp; Expenses <em>Tracker</em></div><div class="tabs">${["Transactions", "Monthly", "Report", "Year"].map((t) => `<span class="tab">${t}</span>`).join("")}</div><div class="is">For your business · and for you</div>`)}
   ${sec("s1", [SC.s1[0], SC.s2[1]], `${logo}<div id="sheet"><div class="sbar"><b>TRANSACTIONS · encode here</b><span id="stBad" class="st">⚠ 1 row needs fixing</span><span id="stOk" class="st">✓ All transactions check out</span></div><div class="grid">${grid}</div></div><div class="exl">EXAMPLE DATA</div>`)}
   <div id="cap1" class="clip" data-start="${n3(SC.s1[0])}" data-duration="${n3(SC.s1[1] - SC.s1[0])}" data-track-index="2"><div id="s1x">${capHtml("s1")}</div></div>
   <div id="cap2" class="clip" data-start="${n3(SC.s2[0])}" data-duration="${n3(SC.s2[1] - SC.s2[0])}" data-track-index="2"><div id="s2">${capHtml("s2")}</div></div>
   ${sec("s3", SC.s3, `${logo}<div id="mon">${monthly}</div>${capHtml("s3")}<div class="exl">EXAMPLE DATA</div>`)}
   ${sec("s4", SC.s4, `${logo}<div id="rep">${report}</div>${capHtml("s4")}`)}
   ${sec("s5", SC.s5, `${logo}<div id="yr">${year}</div>${capHtml("s5")}<div class="exl">EXAMPLE DATA</div>`)}
-  ${sec("end", SC.end, `<div class="e1">Encode on one tab.</div><div class="e2">Everything else updates itself.</div><img src="assets/logo-light.png" alt="Riz.co"/><div class="wm">${h(kit.wordmark)}</div><div class="tg">${h(kit.tagline).replace(". ", ".<br>")}</div><div class="cta">DM us to get this template</div>`, "")}
+  ${sec("end", SC.end, `<div class="e1">Business or personal —</div><div class="e2">every dollar deserves a plan.</div><img src="assets/logo-light.png" alt="Riz.co"/><div class="wm">${h(kit.wordmark)}</div><div class="tg">${h(kit.tagline).replace(". ", ".<br>")}</div><div class="cta">DM us to get this template</div>`, "")}
   ${cuts.map((t, i) => `<div id="wp${i}" class="clip wipe" data-start="${n3(t - 0.25)}" data-duration="0.5" data-track-index="3"></div>`).join("\n  ")}
   <div id="progress-track" class="clip" data-start="0" data-duration="${n3(SC.end[0])}" data-track-index="4"><div id="progress"></div></div>
   ${cuts.map((t, i) => `<audio id="wh${i}" src="assets/whoosh.wav" data-start="${n3(t - 0.3)}" data-duration="0.45" data-volume="0.35"></audio>`).join("\n  ")}
-  ${[[12.9, "pop"], [14.5, "beep"], [15.0, "beep"], [18.6, "glitch"], [21.5, "beep"]].map(([t, s], i) => `<audio id="fx${i}" src="assets/${s}.wav" data-start="${t}" data-duration="${s === "glitch" ? 0.4 : 0.1}" data-volume="${s === "glitch" ? 0.2 : 0.35}"></audio>`).join("\n  ")}
+  ${[[16.5, "pop"], [18.1, "beep"], [18.6, "beep"], [22.2, "glitch"], [25.1, "beep"]].map(([t, s], i) => `<audio id="fx${i}" src="assets/${s}.wav" data-start="${t}" data-duration="${s === "glitch" ? 0.4 : 0.1}" data-volume="${s === "glitch" ? 0.2 : 0.35}"></audio>`).join("\n  ")}
   <audio id="music" src="assets/music.mp3" data-start="0" data-duration="${TOTAL}" data-media-start="0" data-volume="0.55" data-fade-in="0.8" data-fade-out="2.5"></audio>
 </div>
 <script>
