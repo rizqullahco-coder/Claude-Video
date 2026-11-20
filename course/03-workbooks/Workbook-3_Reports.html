@@ -1,0 +1,57 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Workbook 3 · Reports</title><style>
+@page { size: A4; margin: 0; }
+:root { --teal:#0F4C5C; --deep:#0A2F38; --amber:#E9A23B; --amber-soft:#FBE7C4; --cream:#FBF6EC; --ink:#12262B; --muted:#5B6F73; --line:#DCD4C4; --coral:#D9644A; --green:#2E8B62; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; color: var(--ink); font-size: 10.5pt; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 210mm; min-height: 297mm; padding: 18mm 18mm 20mm; position: relative; page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+.foot { position: absolute; bottom: 9mm; left: 18mm; right: 18mm; display: flex; justify-content: space-between; font-size: 8pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 3mm; }
+.cover { background: var(--deep); color: #fff; display: flex; flex-direction: column; justify-content: space-between; padding: 24mm 20mm; }
+.logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 13pt; }
+.logo i { width: 22px; height: 22px; background: var(--amber); border-radius: 6px; transform: rotate(45deg); display: inline-block; position: relative; }
+.logo i::after { content: ''; position: absolute; inset: 7px; background: var(--deep); border-radius: 2px; }
+.cover .k { color: var(--amber); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 10pt; }
+.cover h1 { font-family: 'Inter Display', 'Inter'; font-size: 44pt; line-height: 1.02; letter-spacing: -.02em; margin-top: 6mm; }
+.cover .sub { color: #BFD3D6; font-size: 13pt; margin-top: 6mm; max-width: 140mm; }
+.cover .band { height: 3px; width: 60mm; background: var(--amber); margin-top: 10mm; }
+.cover .meta { color: #BFD3D6; font-size: 9.5pt; }
+h2 { font-family: 'Inter Display', 'Inter'; color: var(--teal); font-size: 20pt; letter-spacing: -.01em; margin-bottom: 2mm; }
+h3 { color: var(--teal); font-size: 12pt; margin: 6mm 0 2mm; }
+.kick { color: #B77A1E; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 8.5pt; margin-bottom: 1mm; }
+p { margin: 2mm 0; }
+.lead { color: var(--muted); font-size: 11pt; }
+table { width: 100%; border-collapse: collapse; margin: 3mm 0; font-size: 9.5pt; }
+th { background: var(--teal); color: #fff; text-align: left; padding: 2.2mm 2.5mm; font-weight: 600; }
+td { border-bottom: 1px solid var(--line); padding: 2.6mm 2.5mm; vertical-align: top; }
+td.blank { height: 9mm; }
+td.n, th.n { text-align: right; font-family: 'JetBrains Mono', monospace; }
+.box { border: 1.2px solid var(--line); border-radius: 3mm; padding: 4mm 5mm; margin: 3mm 0; background: #fff; }
+.box.amber { background: var(--amber-soft); border-color: #EFD196; }
+.box.teal { background: #E6F0F0; border-color: #C3DADB; }
+.lines div { border-bottom: 1px solid var(--line); height: 8.5mm; }
+.chk { list-style: none; }
+.chk li { padding: 1.6mm 0 1.6mm 8mm; position: relative; border-bottom: 1px dashed #E6DFD1; }
+.chk li::before { content: ''; position: absolute; left: 0; top: 2.4mm; width: 4mm; height: 4mm; border: 1.4px solid var(--teal); border-radius: 1mm; }
+pre { font-family: 'JetBrains Mono', monospace; font-size: 8.8pt; white-space: pre-wrap; background: #F4F1EA; border-left: 3px solid var(--amber); padding: 3mm 4mm; border-radius: 2mm; margin: 2mm 0; line-height: 1.45; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+.small { font-size: 8.5pt; color: var(--muted); }
+.brief td:first-child { width: 30mm; font-weight: 700; color: var(--teal); }
+</style></head><body><section class="page cover"><div class="logo"><i></i>BrightLedger Academy</div>
+<div><div class="k">Workbook 3 · Week 3</div><h1>Reports that<br>read well</h1><div class="sub">Statement mapping, variance analysis and commentary templates for Lessons 3.1 to 3.5.</div><div class="band"></div></div>
+<div class="meta">AI for Accountants: Close Your Books Faster with Claude<br>Practice company: Kopi Mesra Sdn Bhd (fictional). Name: ______________________________</div></section><section class="page"><div class="kick">Lesson 3.1</div><h2>From trial balance to statements</h2>
+<p>File: <b>M3_trial_balance_march.xlsx</b>.</p><h3>3.1 TB to statements</h3><pre>Map each account in the attached trial balance to the Profit & Loss or the Balance Sheet, grouped as: Revenue, Cost of sales, Operating expenses, Finance costs, Assets, Liabilities, Equity. Then produce a summarised P&L and balance sheet. Show that the TB balances and that profit agrees to the change in equity.</pre>
+<table><tr><th>Statement line</th><th>TB accounts included</th><th>Amount (RM)</th><th>Ties to TB?</th></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr></table>
+<div class="box amber"><b>Check:</b> TB debits = credits = RM 422,493.38. March revenue RM 140,383.38, expenses RM 124,032.94, profit RM 16,350.44.</div><div class="foot"><span>BrightLedger Academy · Workbook 3 · Reports</span><span>Page 2</span></div></section><section class="page"><div class="kick">Lesson 3.2</div><h2>Budget vs actual</h2>
+<p>File: <b>M3_budget_vs_actual.xlsx</b>. Materiality for this exercise: RM 1,000 or 10%.</p><h3>3.2 Variance analysis</h3><pre>Using the attached budget vs actual, flag variances bigger than RM 1,000 or 10%. For each, show: amount, %, favourable or adverse, and three possible business reasons I should confirm with the owner. Don't state reasons as facts.</pre>
+<table><tr><th>Account</th><th>Budget</th><th>Actual</th><th>Var RM</th><th>Var %</th><th>Fav/Adv</th><th>Reason to confirm</th></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr></table><div class="foot"><span>BrightLedger Academy · Workbook 3 · Reports</span><span>Page 3</span></div></section><section class="page"><div class="kick">Lessons 3.3 · 3.4 · 3.5</div><h2>Commentary that reads well</h2>
+<div class="box teal"><b>What · Why · So what · Now what</b><br>
+<b>What:</b> Dine-in sales were RM 99,819, RM 5,181 (4.9%) below budget.<br>
+<b>Why:</b> [only reasons the owner confirmed, e.g. the Damansara outlet closed 3 days for repairs].<br>
+<b>So what:</b> Gross profit was about RM 3,500 lower than planned.<br>
+<b>Now what:</b> Schedule repairs on Mondays, the quietest day.</div>
+<h3>3.3 Commentary</h3><pre>Write management commentary on the top three variances for the café owner. For each use: What happened (numbers), Why (only the reasons I confirm below), So what (impact on profit or cash), Now what (one action). Under 200 words, no jargon. Confirmed reasons: [paste]</pre><h3>3.4 Dashboard</h3><pre>Create a one-page dashboard for March from the attached data: revenue by channel (column chart), gross margin %, top 5 expenses (bar chart), budget vs actual for profit, and three key messages. Use clear labels and RM values.</pre><h3>3.5 Tailor</h3><pre>Rewrite this management report for [the café owner / a bank credit officer / the external auditor]. Keep all numbers identical. Change only emphasis, length and tone to fit the reader. [paste report]</pre>
+<h3>Audience checklist</h3>
+<table><tr><th>Reader</th><th>Wants to know</th><th>Length</th></tr>
+<tr><td>Owner</td><td>Profit, cash, what to do next</td><td>1 page</td></tr>
+<tr><td>Banker</td><td>Cash flow, profitability, ability to repay</td><td>1–2 pages + statements</td></tr>
+<tr><td>Auditor</td><td>Policies, judgements, reconciliations, evidence</td><td>Detailed, referenced</td></tr></table><div class="foot"><span>BrightLedger Academy · Workbook 3 · Reports</span><span>Page 4</span></div></section></body></html>

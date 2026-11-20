@@ -1,0 +1,50 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>/*CSS*/</style></head>
+<body>
+<div id="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="grid"></div></div>
+<div id="stage"><!--BODY--></div>
+<div id="cap"><span></span></div>
+<div id="brandmark"><span class="dot"></span>BrightLedger Academy</div>
+<script>
+const CUES = __CUES__, CAPS = __CAPS__, DUR = __DUR__, SHOWCAPS = __CAPTIONS__;
+const clamp = (x) => Math.min(1, Math.max(0, x));
+const easeOut = (p) => 1 - Math.pow(1 - p, 3);
+const easeBack = (p) => { const c = 1.6; return 1 + (c + 1) * Math.pow(p - 1, 3) + c * Math.pow(p - 1, 2); };
+const fmt = (v, dec) => v.toLocaleString('en-US', {minimumFractionDigits: dec, maximumFractionDigits: dec});
+const els = [...document.querySelectorAll('[data-fx]')];
+els.forEach(el => { if (el.dataset.fx === 'type') el.dataset.text = el.textContent; });
+const capEl = document.querySelector('#cap span');
+function start(el) { const c = el.dataset.c; return (c === undefined ? 0 : (CUES[+c] ?? 0)) + (+(el.dataset.o || 0)); }
+window.seek = function (t) {
+  for (const el of els) {
+    const fx = el.dataset.fx;
+    const d = +(el.dataset.d || (fx === 'type' ? el.dataset.text.length / 38 : 0.6));
+    const p = clamp((t - start(el)) / d), e = easeOut(p);
+    switch (fx) {
+      case 'fade': el.style.opacity = e; break;
+      case 'up': el.style.opacity = e; el.style.transform = `translateY(${(1 - e) * 46}px)`; break;
+      case 'down': el.style.opacity = e; el.style.transform = `translateY(${(e - 1) * 46}px)`; break;
+      case 'left': el.style.opacity = e; el.style.transform = `translateX(${(1 - e) * -70}px)`; break;
+      case 'right': el.style.opacity = e; el.style.transform = `translateX(${(1 - e) * 70}px)`; break;
+      case 'pop': el.style.opacity = clamp(p * 2); el.style.transform = `scale(${0.6 + 0.4 * easeBack(p)})`; break;
+      case 'type': {
+        const full = el.dataset.text; const n = Math.round(full.length * p);
+        el.textContent = full.slice(0, n); el.classList.toggle('typing', p > 0 && p < 1); break;
+      }
+      case 'count': {
+        const to = +el.dataset.to, from = +(el.dataset.from || 0), dec = +(el.dataset.dec || 0);
+        el.textContent = (el.dataset.pre || '') + fmt(from + (to - from) * e, dec) + (el.dataset.suf || ''); break;
+      }
+      default: el.style.setProperty('--p', e); el.classList.toggle('on', p >= 1); // mark, strike, bar, draw, glow
+    }
+  }
+  const st = document.getElementById('stage');
+  st.style.opacity = clamp(Math.min(t / 0.3, (DUR - t) / 0.3));
+  const cap = SHOWCAPS ? CAPS.find(c => t >= c.s && t < c.e) : null;
+  capEl.textContent = cap ? cap.text : '';
+  capEl.parentElement.style.opacity = cap ? 1 : 0;
+  document.body.style.setProperty('--t', t.toFixed(3));
+};
+window.seek(0);
+</script>
+</body></html>

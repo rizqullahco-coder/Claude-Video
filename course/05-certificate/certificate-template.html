@@ -1,0 +1,57 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Certificate of Completion</title><style>
+@page { size: A4 landscape; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 297mm; height: 210mm; font-family: 'Inter', sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; color: #12262B; }
+.c { position: relative; width: 297mm; height: 210mm; background: #FBF6EC; overflow: hidden; }
+.side { position: absolute; left: 0; top: 0; bottom: 0; width: 74mm; background: #0A2F38; color: #fff; padding: 18mm 12mm; display: flex; flex-direction: column; justify-content: space-between; }
+.side .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.08) 1.2px, transparent 1.2px); background-size: 6mm 6mm; }
+.logo { position: relative; display: flex; flex-direction: column; gap: 6mm; }
+.mark { width: 16mm; height: 16mm; background: #E9A23B; border-radius: 4mm; transform: rotate(45deg); position: relative; margin-left: 2mm; }
+.mark::after { content: ''; position: absolute; inset: 5mm; background: #0A2F38; border-radius: 1.4mm; }
+.logo b { font-size: 15pt; line-height: 1.2; }
+.seal { position: relative; width: 44mm; height: 44mm; border-radius: 50%; border: 1.4mm solid #E9A23B; display: grid; place-items: center; text-align: center; color: #E9A23B; font-weight: 800; font-size: 9pt; letter-spacing: .12em; line-height: 1.5; }
+.seal::before { content: ''; position: absolute; inset: 2.2mm; border-radius: 50%; border: .4mm dashed rgba(233,162,59,.6); }
+.main { position: absolute; left: 74mm; right: 0; top: 0; bottom: 0; padding: 22mm 22mm 18mm 24mm; display: flex; flex-direction: column; }
+.k { color: #B77A1E; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; font-size: 10pt; }
+h1 { font-family: 'Inter Display', 'Inter'; font-size: 40pt; letter-spacing: -.02em; color: #0F4C5C; line-height: 1; margin-top: 4mm; }
+.to { margin-top: 13mm; color: #5B6F73; font-size: 11pt; }
+.name { margin-top: 3mm; height: 20mm; border-bottom: .5mm solid #0F4C5C; font-family: 'Inter Display', 'Inter'; font-weight: 700; font-size: 32pt; color: #12262B; display: flex; align-items: flex-end; padding-bottom: 2mm; outline: none; }
+.for { margin-top: 8mm; font-size: 11.5pt; color: #3A4D51; line-height: 1.55; max-width: 180mm; }
+.for b { color: #0F4C5C; }
+.skills { margin-top: 5mm; display: flex; flex-wrap: wrap; gap: 2.5mm; }
+.skills span { background: #fff; border: .3mm solid #E4DDCF; border-radius: 10mm; padding: 1.4mm 4mm; font-size: 9pt; font-weight: 600; color: #0F4C5C; }
+.foot { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10mm; align-items: end; }
+.foot div { border-top: .3mm solid #9FB0B3; padding-top: 2mm; font-size: 8.5pt; color: #5B6F73; }
+.foot div b { display: block; color: #12262B; font-size: 10pt; height: 6mm; overflow: hidden; }
+.disc { position: absolute; bottom: 6mm; left: 98mm; right: 22mm; font-size: 6.5pt; color: #8A9A9D; }
+.noprint { position: fixed; top: 10px; right: 10px; font: 13px Inter; background: #fff; padding: 10px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,.15); }
+@media print { .noprint { display: none; } }
+</style></head><body>
+<div class="noprint">Click the name, date or ID to edit, then print to PDF (A4 landscape).</div>
+<div class="c">
+  <div class="side"><div class="dots"></div>
+    <div class="logo"><div class="mark"></div><b>BrightLedger<br>Academy</b></div>
+    <div class="seal">CERTIFIED<br>COMPLETION<br>2026</div>
+  </div>
+  <div class="main">
+    <div class="k">Certificate of Completion</div>
+    <h1>AI for Accountants</h1>
+    <div style="font-size:14pt;color:#0F4C5C;font-weight:600;margin-top:2mm">Close Your Books Faster with Claude</div>
+    <div class="to">This certifies that</div>
+    <div class="name" contenteditable="true" id="n"></div>
+    <div class="for">has completed all four modules, passed every module quiz, and submitted a full month-end close capstone
+      meeting the standards of the <b>AI for Accountants</b> programme, including:</div>
+    <div class="skills"><span>Ledger clean-up</span><span>Bank reconciliation</span><span>Accruals &amp; prepayments</span><span>Variance analysis</span><span>Management reporting</span><span>Responsible AI use</span></div>
+    <div class="foot">
+      <div><b contenteditable="true"></b>Date of completion</div>
+      <div><b contenteditable="true"></b>Certificate ID</div>
+      <div><b>&nbsp;</b>Lead instructor</div>
+    </div>
+  </div>
+  <div class="disc">Issued by BrightLedger Academy. An independent training course; not issued, sponsored or endorsed by Anthropic. Claude is a product of Anthropic.</div>
+</div>
+<script>
+const q = new URLSearchParams(location.search);
+for (const [k, id] of [['name','n']]) if (q.get(k)) document.getElementById(id).textContent = q.get(k);
+</script>
+</body></html>

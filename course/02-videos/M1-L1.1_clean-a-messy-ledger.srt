@@ -1,0 +1,295 @@
+1
+00:00:01,600 --> 00:00:05,515
+Module 1, Lesson 1. Clean a messy ledger in 10 minutes.
+
+2
+00:00:07,500 --> 00:00:09,537
+It's the first working day of April.
+
+3
+00:00:09,957 --> 00:00:14,196
+Kopi Mesra, a two-outlet café, has just sent you their March
+
+4
+00:00:14,196 --> 00:00:15,185
+ledger export.
+
+5
+00:00:15,605 --> 00:00:20,223
+101 rows. Vendor names spelled three different ways. Blank
+
+6
+00:00:20,223 --> 00:00:24,761
+account codes. And somewhere in there, a few transactions
+
+7
+00:00:24,761 --> 00:00:25,796
+posted twice.
+
+8
+00:00:26,216 --> 00:00:28,869
+Cleaning this by hand could take you an afternoon.
+
+9
+00:00:29,289 --> 00:00:33,223
+In this lesson, we'll do it with Claude in about 10 minutes, and
+
+10
+00:00:33,223 --> 00:00:35,620
+we'll check every number along the way.
+
+11
+00:00:37,233 --> 00:00:40,822
+By the end of this lesson, you'll be able to do three things.
+
+12
+00:00:41,242 --> 00:00:44,948
+Upload a ledger and get a clear list of issues, without Claude
+
+13
+00:00:44,948 --> 00:00:46,263
+changing anything yet.
+
+14
+00:00:46,683 --> 00:00:50,354
+Check Claude's findings by tying out the totals.
+
+15
+00:00:50,774 --> 00:00:54,229
+And ask for a clean, categorised file you can review and use.
+
+16
+00:00:55,833 --> 00:00:58,453
+Step one. Prepare the file safely.
+
+17
+00:00:58,873 --> 00:01:04,292
+Before you upload anything, check your firm's policy on using
+
+18
+00:01:04,292 --> 00:01:05,092
+AI tools.
+
+19
+00:01:05,512 --> 00:01:09,638
+Remove anything you don't need, like customer names, IC numbers,
+
+20
+00:01:09,638 --> 00:01:11,186
+or bank account numbers.
+
+21
+00:01:11,606 --> 00:01:15,740
+For this course, you'll use the Kopi Mesra practice file. It's a
+
+22
+00:01:15,740 --> 00:01:18,452
+fictional company, so it's safe to upload.
+
+23
+00:01:18,872 --> 00:01:22,809
+Download it from the lesson resources. It's called M1 ledger
+
+24
+00:01:22,809 --> 00:01:23,596
+March messy.
+
+25
+00:01:25,200 --> 00:01:28,380
+Step two. Upload the file and give Claude a clear
+
+26
+00:01:28,380 --> 00:01:29,548
+first instruction.
+
+27
+00:01:29,968 --> 00:01:34,074
+Open Claude, attach the spreadsheet, and type a prompt
+
+28
+00:01:34,074 --> 00:01:34,835
+like this.
+
+29
+00:01:35,255 --> 00:01:39,033
+First, the background: who you are, and what the file is.
+
+30
+00:01:39,453 --> 00:01:43,281
+Then the request: find the problems, and name the kinds of
+
+31
+00:01:43,281 --> 00:01:44,864
+problems you care about.
+
+32
+00:01:45,284 --> 00:01:50,195
+And one important rule: don't change anything yet. We want a
+
+33
+00:01:50,195 --> 00:01:52,978
+list first, so we stay in control.
+
+34
+00:01:53,398 --> 00:01:57,106
+Now look at the last part. We ask for the totals, and for
+
+35
+00:01:57,106 --> 00:02:01,074
+anything Claude is unsure about. That's the fact-check habit,
+
+36
+00:02:01,074 --> 00:02:03,285
+and you'll use it in every lesson.
+
+37
+00:02:04,900 --> 00:02:07,591
+Step three. Read the issues list.
+
+38
+00:02:08,011 --> 00:02:11,563
+Here's the summary you should get from the practice file. These
+
+39
+00:02:11,563 --> 00:02:13,930
+are the issues we planted for you to find.
+
+40
+00:02:14,350 --> 00:02:20,301
+Six possible duplicates, worth RM 7,133.13.
+
+41
+00:02:20,721 --> 00:02:22,778
+Fourteen rows with no account code.
+
+42
+00:02:23,198 --> 00:02:25,432
+Three payments with no reference number.
+
+43
+00:02:25,852 --> 00:02:29,961
+Twenty-five different spellings for just thirteen vendors.
+
+44
+00:02:30,381 --> 00:02:35,447
+And two unusual items: a RM 5,000 cash withdrawal on a Sunday,
+
+45
+00:02:35,447 --> 00:02:39,859
+posted to suspense, and a home air fryer that may be a
+
+46
+00:02:39,859 --> 00:02:41,247
+personal expense.
+
+47
+00:02:41,667 --> 00:02:44,835
+Claude's wording will be different from this, and that's fine.
+
+48
+00:02:44,835 --> 00:02:46,572
+What matters is that you check it.
+
+49
+00:02:48,167 --> 00:02:52,207
+Step four. Tie out the totals. Never skip this.
+
+50
+00:02:52,627 --> 00:03:00,370
+Total debits in the original file: RM 126,078.67.
+
+51
+00:03:00,790 --> 00:03:09,506
+Take out the six duplicates, and debits drop to RM 118,945.54.
+
+52
+00:03:09,926 --> 00:03:15,824
+The difference is exactly RM 7,133.13, the value of the
+
+53
+00:03:15,824 --> 00:03:19,041
+duplicates. The numbers agree.
+
+54
+00:03:19,461 --> 00:03:23,650
+But before you remove anything, check each duplicate against the
+
+55
+00:03:23,650 --> 00:03:27,578
+source document. Two identical rows aren't always a mistake.
+
+56
+00:03:27,578 --> 00:03:30,393
+Sometimes there really were two deliveries.
+
+57
+00:03:32,000 --> 00:03:34,810
+Step five. Ask for the clean file.
+
+58
+00:03:35,230 --> 00:03:38,931
+Once you've checked the list, reply with clear rules, like this.
+
+59
+00:03:39,351 --> 00:03:43,375
+Use only accounts from the chart of accounts. Standardise the
+
+60
+00:03:43,375 --> 00:03:47,268
+vendor names. Flag duplicates instead of deleting them. And
+
+61
+00:03:47,268 --> 00:03:48,917
+don't change any amounts.
+
+62
+00:03:49,337 --> 00:03:53,313
+You get back a cleaned spreadsheet, with a standard vendor name,
+
+63
+00:03:53,313 --> 00:03:56,296
+a suggested account, and a status for every row.
+
+64
+00:03:56,716 --> 00:04:00,166
+Anything Claude isn't sure about is marked for review, so you
+
+65
+00:04:00,166 --> 00:04:01,298
+make the final call.
+
+66
+00:04:02,900 --> 00:04:03,741
+Let's recap.
+
+67
+00:04:04,161 --> 00:04:08,717
+Prepare your file safely. Ask for an issues list first. Tie out
+
+68
+00:04:08,717 --> 00:04:12,911
+the totals. Then ask for the clean file, with clear rules.
+
+69
+00:04:13,331 --> 00:04:17,855
+Now it's your turn. Download the practice file, run both
+
+70
+00:04:17,855 --> 00:04:22,136
+prompts, and fill in the tie-out sheet in Workbook 1.
+
+71
+00:04:22,556 --> 00:04:26,245
+Remember: Claude does the heavy lifting, but you're the
+
+72
+00:04:26,245 --> 00:04:28,929
+accountant. You sign off on the numbers.
+
+73
+00:04:29,349 --> 00:04:33,599
+In the next lesson, you'll learn the BRIEF method: a simple way
+
+74
+00:04:33,599 --> 00:04:36,162
+to write prompts that work every time.

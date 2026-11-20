@@ -1,0 +1,80 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Workbook 1 · Ledgers</title><style>
+@page { size: A4; margin: 0; }
+:root { --teal:#0F4C5C; --deep:#0A2F38; --amber:#E9A23B; --amber-soft:#FBE7C4; --cream:#FBF6EC; --ink:#12262B; --muted:#5B6F73; --line:#DCD4C4; --coral:#D9644A; --green:#2E8B62; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; color: var(--ink); font-size: 10.5pt; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 210mm; min-height: 297mm; padding: 18mm 18mm 20mm; position: relative; page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+.foot { position: absolute; bottom: 9mm; left: 18mm; right: 18mm; display: flex; justify-content: space-between; font-size: 8pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 3mm; }
+.cover { background: var(--deep); color: #fff; display: flex; flex-direction: column; justify-content: space-between; padding: 24mm 20mm; }
+.logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 13pt; }
+.logo i { width: 22px; height: 22px; background: var(--amber); border-radius: 6px; transform: rotate(45deg); display: inline-block; position: relative; }
+.logo i::after { content: ''; position: absolute; inset: 7px; background: var(--deep); border-radius: 2px; }
+.cover .k { color: var(--amber); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 10pt; }
+.cover h1 { font-family: 'Inter Display', 'Inter'; font-size: 44pt; line-height: 1.02; letter-spacing: -.02em; margin-top: 6mm; }
+.cover .sub { color: #BFD3D6; font-size: 13pt; margin-top: 6mm; max-width: 140mm; }
+.cover .band { height: 3px; width: 60mm; background: var(--amber); margin-top: 10mm; }
+.cover .meta { color: #BFD3D6; font-size: 9.5pt; }
+h2 { font-family: 'Inter Display', 'Inter'; color: var(--teal); font-size: 20pt; letter-spacing: -.01em; margin-bottom: 2mm; }
+h3 { color: var(--teal); font-size: 12pt; margin: 6mm 0 2mm; }
+.kick { color: #B77A1E; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 8.5pt; margin-bottom: 1mm; }
+p { margin: 2mm 0; }
+.lead { color: var(--muted); font-size: 11pt; }
+table { width: 100%; border-collapse: collapse; margin: 3mm 0; font-size: 9.5pt; }
+th { background: var(--teal); color: #fff; text-align: left; padding: 2.2mm 2.5mm; font-weight: 600; }
+td { border-bottom: 1px solid var(--line); padding: 2.6mm 2.5mm; vertical-align: top; }
+td.blank { height: 9mm; }
+td.n, th.n { text-align: right; font-family: 'JetBrains Mono', monospace; }
+.box { border: 1.2px solid var(--line); border-radius: 3mm; padding: 4mm 5mm; margin: 3mm 0; background: #fff; }
+.box.amber { background: var(--amber-soft); border-color: #EFD196; }
+.box.teal { background: #E6F0F0; border-color: #C3DADB; }
+.lines div { border-bottom: 1px solid var(--line); height: 8.5mm; }
+.chk { list-style: none; }
+.chk li { padding: 1.6mm 0 1.6mm 8mm; position: relative; border-bottom: 1px dashed #E6DFD1; }
+.chk li::before { content: ''; position: absolute; left: 0; top: 2.4mm; width: 4mm; height: 4mm; border: 1.4px solid var(--teal); border-radius: 1mm; }
+pre { font-family: 'JetBrains Mono', monospace; font-size: 8.8pt; white-space: pre-wrap; background: #F4F1EA; border-left: 3px solid var(--amber); padding: 3mm 4mm; border-radius: 2mm; margin: 2mm 0; line-height: 1.45; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+.small { font-size: 8.5pt; color: var(--muted); }
+.brief td:first-child { width: 30mm; font-weight: 700; color: var(--teal); }
+</style></head><body><section class="page cover"><div class="logo"><i></i>BrightLedger Academy</div>
+<div><div class="k">Workbook 1 · Week 1</div><h1>Ledgers:<br>clean books fast</h1><div class="sub">Exercises, templates and checklists for Lessons 1.1 to 1.5.</div><div class="band"></div></div>
+<div class="meta">AI for Accountants: Close Your Books Faster with Claude<br>Practice company: Kopi Mesra Sdn Bhd (fictional). Name: ______________________________</div></section><section class="page"><div class="kick">Start here</div><h2>How to use this workbook</h2>
+<p class="lead">Watch each lesson, then do the matching exercise here with the practice files. Print it, or fill it in on screen.</p>
+<div class="box teal"><b>Practice files for this module</b><br>M1_ledger_march_messy.xlsx · M1_chart_of_accounts.xlsx<br>
+<span class="small">Kopi Mesra Sdn Bhd is fictional, so these files are safe to upload to Claude.</span></div>
+<h3>Golden rules</h3><ul class="chk"><li>Ask for a list of issues before asking Claude to change anything.</li><li>Give rules: which accounts to use, what must not change.</li><li>Always tie out totals before and after.</li><li>Check uncertain items against source documents.</li><li>Never upload real client data unless your firm's AI policy allows it, and remove what you don't need.</li><li>You sign off on the numbers, not Claude.</li></ul>
+<h3>The BRIEF prompt planner</h3><p>Use this every time you write a new prompt. Lesson 1.2 explains each step.</p><table class="brief"><tr><th>Letter</th><th>Means</th><th>Write yours</th></tr>
+<tr><td>B · Background</td><td>Who you are, the business, what the file is</td><td class="blank" style="height:16mm"></td></tr>
+<tr><td>R · Request</td><td>The job, and the kinds of problems or outputs you care about</td><td class="blank" style="height:16mm"></td></tr>
+<tr><td>I · Instructions</td><td>Rules: accounts to use, what not to change, standards to follow</td><td class="blank" style="height:16mm"></td></tr>
+<tr><td>E · Expected output</td><td>Table, file, memo; columns and order</td><td class="blank" style="height:16mm"></td></tr>
+<tr><td>F · Fact-check</td><td>Totals to tie out; ask Claude to flag anything it's unsure about</td><td class="blank" style="height:16mm"></td></tr></table><div class="foot"><span>BrightLedger Academy · Workbook 1 · Ledgers</span><span>Page 2</span></div></section><section class="page"><div class="kick">Lesson 1.1 · Exercise</div><h2>Clean a messy ledger</h2>
+<p>Upload <b>M1_ledger_march_messy.xlsx</b> to Claude and run these two prompts, in order.</p><h3>1.1 Issues list</h3><pre>I'm the accountant for Kopi Mesra Sdn Bhd, a café. The attached file is their March 2026 general ledger export.
+Review it and list every issue you find: duplicate entries, missing account codes, missing references, inconsistent vendor names, and anything unusual.
+Don't change the data yet.
+Show the results as a table: row, reference, issue, suggested fix. Finish with total debits and total credits, and tell me anything you're unsure about.</pre><h3>1.1 Clean file</h3><pre>Thanks. Now create a cleaned version of the file:
+• Use only accounts from the attached chart of accounts
+• Add a column with the standard vendor name
+• Flag duplicates, don't delete them
+• Don't change any amounts
+• Add a Status column: OK, Review, or Possible duplicate
+Show total debits and credits before and after so I can tie out.</pre>
+<h3>Tie-out sheet</h3>
+<table><tr><th>Check</th><th class="n">Your figure (RM)</th><th>Agrees?</th></tr>
+<tr><td>Total debits, original file</td><td class="blank"></td><td class="blank"></td></tr>
+<tr><td>Value of rows flagged as duplicates</td><td class="blank"></td><td class="blank"></td></tr>
+<tr><td>Total debits after removing confirmed duplicates</td><td class="blank"></td><td class="blank"></td></tr>
+<tr><td>Difference (should equal duplicates value)</td><td class="blank"></td><td class="blank"></td></tr>
+<tr><td>Total credits, original vs cleaned (should not change)</td><td class="blank"></td><td class="blank"></td></tr></table><div class="foot"><span>BrightLedger Academy · Workbook 1 · Ledgers</span><span>Page 3</span></div></section><section class="page"><div class="kick">Lessons 1.3 · 1.4</div><h2>Vendors, duplicates and odd items</h2>
+<h3>Vendor standardisation sheet</h3><table><tr><th>Name as written</th><th>Standard name</th><th>Account</th><th>Confidence</th></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr></table>
+<h3>Duplicate and odd-item review log</h3><table><tr><th>Row / Ref</th><th>Date</th><th>Amount</th><th>Issue</th><th>Source checked?</th><th>Decision</th></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr></table>
+<h3>1.3 Vendor map</h3><pre>Group every vendor name in the attached ledger that refers to the same supplier (for example 'GRAB*FOOD 8812' and 'Grab Food MY').
+Return a table: variant as written, standard name, suggested account code from the attached chart of accounts, confidence (high/medium/low).
+Only use accounts that exist in the chart. List low-confidence matches separately for me to decide.</pre><h3>1.4 Duplicates and odd items</h3><pre>Check the attached ledger for: exact duplicates (same date, reference and amount), near duplicates (same amount and vendor within 3 days), missing references, round-sum amounts, weekend postings and anything posted to Suspense.
+Don't delete anything. Give me a table: row, type of issue, why it's suspicious, what document I should check.</pre><div class="foot"><span>BrightLedger Academy · Workbook 1 · Ledgers</span><span>Page 4</span></div></section><section class="page"><div class="kick">Lesson 1.5</div><h2>Data safety and review checklist</h2>
+<h3>Before you upload</h3><ul class="chk"><li>I have checked my firm's policy on AI tools and client data.</li><li>I removed names, IC numbers, phone numbers and bank account numbers that I don't need.</li><li>I am using an approved account or workspace, not a personal one, for client work.</li><li>The file contains only the period and columns needed for the task.</li></ul>
+<h3>Before you rely on the output</h3><ul class="chk"><li>Totals tie out to the original file.</li><li>Every account used exists in the chart of accounts.</li><li>Amounts were not changed unless I asked.</li><li>Items Claude marked as uncertain have been checked against source documents.</li><li>I can explain every change to a reviewer or auditor.</li></ul>
+<h3>1.5 Anonymise</h3><pre>Before I share this file, list every column that may contain personal or sensitive data (names, IC numbers, phone numbers, bank account numbers, addresses). Suggest how to mask each one so the accounting analysis still works.</pre>
+<div class="box amber"><b>Answer key (practice file)</b><br>
+101 rows · 6 possible duplicates worth RM 7,133.13 · 14 rows with no account · 3 payments with no reference · 25 spellings of 13 vendors · 2 unusual items: PV3999 RM5,000 round-sum cash withdrawal on a Sunday posted to Suspense; PV4000 RM459 home air fryer - possible personal expense.<br>
+Total debits original RM 126,078.67; after removing duplicates RM 118,945.54; total credits RM 140,365.18 (unchanged).</div><div class="foot"><span>BrightLedger Academy · Workbook 1 · Ledgers</span><span>Page 5</span></div></section></body></html>

@@ -1,0 +1,74 @@
+{
+  "ledger_rows": 101,
+  "duplicates": 6,
+  "duplicate_value": 7133.13,
+  "missing_account": 14,
+  "missing_ref": 3,
+  "odd": [
+    "PV3999 RM5,000 round-sum cash withdrawal on a Sunday posted to Suspense",
+    "PV4000 RM459 home air fryer - possible personal expense"
+  ],
+  "vendors": 13,
+  "vendor_spellings": 25,
+  "total_debits_messy": 126078.67,
+  "total_credits": 140365.18,
+  "total_debits_after_dup_removal": 118945.54,
+  "bank_rec": {
+    "opening": 84250.0,
+    "bank_close": 112673.7,
+    "cashbook_close": 111056.64,
+    "unpresented": [
+      [
+        "PV3005",
+        2851.44
+      ],
+      [
+        "PV3033",
+        1333.07
+      ],
+      [
+        "PV3047",
+        706.7
+      ]
+    ],
+    "in_transit": [
+      [
+        "SR0331A",
+        2706.95
+      ]
+    ],
+    "bank_only": [
+      [
+        "2026-03-31",
+        "BANK SERVICE CHARGE",
+        0,
+        45.0
+      ],
+      [
+        "2026-03-31",
+        "MERCHANT CARD FEES MAR",
+        0,
+        612.4
+      ],
+      [
+        "2026-03-25",
+        "INTEREST CREDIT",
+        18.2,
+        0
+      ]
+    ],
+    "transposition": {
+      "ref": "PV3016",
+      "true": 619.33,
+      "cashbook": 691.33
+    },
+    "adjusted_balance": 110489.44
+  },
+  "tb": {
+    "debits": 422493.38,
+    "credits": 422493.38,
+    "revenue": 140383.38,
+    "expenses": 124032.94,
+    "profit": 16350.44
+  }
+}

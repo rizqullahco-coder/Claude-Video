@@ -1,0 +1,59 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Workbook 4 · Portfolio</title><style>
+@page { size: A4; margin: 0; }
+:root { --teal:#0F4C5C; --deep:#0A2F38; --amber:#E9A23B; --amber-soft:#FBE7C4; --cream:#FBF6EC; --ink:#12262B; --muted:#5B6F73; --line:#DCD4C4; --coral:#D9644A; --green:#2E8B62; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; color: var(--ink); font-size: 10.5pt; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 210mm; min-height: 297mm; padding: 18mm 18mm 20mm; position: relative; page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+.foot { position: absolute; bottom: 9mm; left: 18mm; right: 18mm; display: flex; justify-content: space-between; font-size: 8pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 3mm; }
+.cover { background: var(--deep); color: #fff; display: flex; flex-direction: column; justify-content: space-between; padding: 24mm 20mm; }
+.logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 13pt; }
+.logo i { width: 22px; height: 22px; background: var(--amber); border-radius: 6px; transform: rotate(45deg); display: inline-block; position: relative; }
+.logo i::after { content: ''; position: absolute; inset: 7px; background: var(--deep); border-radius: 2px; }
+.cover .k { color: var(--amber); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 10pt; }
+.cover h1 { font-family: 'Inter Display', 'Inter'; font-size: 44pt; line-height: 1.02; letter-spacing: -.02em; margin-top: 6mm; }
+.cover .sub { color: #BFD3D6; font-size: 13pt; margin-top: 6mm; max-width: 140mm; }
+.cover .band { height: 3px; width: 60mm; background: var(--amber); margin-top: 10mm; }
+.cover .meta { color: #BFD3D6; font-size: 9.5pt; }
+h2 { font-family: 'Inter Display', 'Inter'; color: var(--teal); font-size: 20pt; letter-spacing: -.01em; margin-bottom: 2mm; }
+h3 { color: var(--teal); font-size: 12pt; margin: 6mm 0 2mm; }
+.kick { color: #B77A1E; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 8.5pt; margin-bottom: 1mm; }
+p { margin: 2mm 0; }
+.lead { color: var(--muted); font-size: 11pt; }
+table { width: 100%; border-collapse: collapse; margin: 3mm 0; font-size: 9.5pt; }
+th { background: var(--teal); color: #fff; text-align: left; padding: 2.2mm 2.5mm; font-weight: 600; }
+td { border-bottom: 1px solid var(--line); padding: 2.6mm 2.5mm; vertical-align: top; }
+td.blank { height: 9mm; }
+td.n, th.n { text-align: right; font-family: 'JetBrains Mono', monospace; }
+.box { border: 1.2px solid var(--line); border-radius: 3mm; padding: 4mm 5mm; margin: 3mm 0; background: #fff; }
+.box.amber { background: var(--amber-soft); border-color: #EFD196; }
+.box.teal { background: #E6F0F0; border-color: #C3DADB; }
+.lines div { border-bottom: 1px solid var(--line); height: 8.5mm; }
+.chk { list-style: none; }
+.chk li { padding: 1.6mm 0 1.6mm 8mm; position: relative; border-bottom: 1px dashed #E6DFD1; }
+.chk li::before { content: ''; position: absolute; left: 0; top: 2.4mm; width: 4mm; height: 4mm; border: 1.4px solid var(--teal); border-radius: 1mm; }
+pre { font-family: 'JetBrains Mono', monospace; font-size: 8.8pt; white-space: pre-wrap; background: #F4F1EA; border-left: 3px solid var(--amber); padding: 3mm 4mm; border-radius: 2mm; margin: 2mm 0; line-height: 1.45; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+.small { font-size: 8.5pt; color: var(--muted); }
+.brief td:first-child { width: 30mm; font-weight: 700; color: var(--teal); }
+</style></head><body><section class="page cover"><div class="logo"><i></i>BrightLedger Academy</div>
+<div><div class="k">Workbook 4 · Week 4</div><h1>Portfolio:<br>one full close</h1><div class="sub">The capstone brief, rubric and portfolio template for Lessons 4.1 to 4.4.</div><div class="band"></div></div>
+<div class="meta">AI for Accountants: Close Your Books Faster with Claude<br>Practice company: Kopi Mesra Sdn Bhd (fictional). Name: ______________________________</div></section><section class="page"><div class="kick">Lesson 4.1</div><h2>Capstone brief: Kopi Mesra, April 2026</h2>
+<p class="lead">Close April from raw data to a management report, using everything from Modules 1–3.</p>
+<p>File: <b>M4_capstone_april_pack.xlsx</b> (README, GL Export Apr, Bank Apr, Month-end info, Budget Apr).</p>
+<h3>4.x Capstone kickoff</h3><pre>I'm closing April 2026 for Kopi Mesra Sdn Bhd. Attached is the capstone pack. Read the README sheet and give me a step-by-step plan for the close, with the checks I should do after each step. Don't do the work yet.</pre>
+<h3>Submit these 5 items</h3><ul class="chk"><li>Cleaned April ledger with a status column and tie-out</li><li>Bank reconciliation for 30 April (adjusted balances agree)</li><li>Month-end journals with narratives and calculations</li><li>One-page management report with dashboard and commentary on the top 3 variances</li><li>Close memo: open items and checks performed</li></ul><div class="foot"><span>BrightLedger Academy · Workbook 4 · Portfolio</span><span>Page 2</span></div></section><section class="page"><div class="kick">Assessment</div><h2>Rubric and self-review</h2>
+<table><tr><th>Area</th><th>Pass standard</th><th>Self-check</th></tr>
+<tr><td>Clean ledger</td><td>All duplicates found, vendors standardised, every row mapped to a valid account, totals tie out</td><td class="blank"></td></tr>
+<tr><td>Bank reconciliation</td><td>Adjusted balances agree; every reconciling item explained (including March items clearing in April)</td><td class="blank"></td></tr>
+<tr><td>Journals</td><td>Accruals, prepayment releases, depreciation and interest correct and balanced, with narratives</td><td class="blank"></td></tr>
+<tr><td>Report</td><td>P&L and balance sheet agree to TB; commentary covers the top 3 variances using What/Why/So what/Now what</td><td class="blank"></td></tr>
+<tr><td>Review</td><td>Close memo lists open items and checks performed; the RM 3,000 transfer to the director is raised as a query</td><td class="blank"></td></tr></table>
+<h3>Certificate requirements</h3><ul class="chk"><li>Passed Quizzes 1–4 (6 out of 8 or better)</li><li>Submitted all 5 capstone items</li><li>Met the pass standard in every rubric area</li></ul><div class="foot"><span>BrightLedger Academy · Workbook 4 · Portfolio</span><span>Page 3</span></div></section><section class="page"><div class="kick">Lesson 4.4</div><h2>Your prompt library and portfolio</h2>
+<h3>My top prompts</h3><table><tr><th>Task</th><th>Prompt name</th><th>Where saved</th><th>Time saved</th></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr></table>
+<h3>Portfolio one-pager</h3>
+<div class="box"><b>Project:</b> Month-end close, Kopi Mesra Sdn Bhd (fictional), April 2026<br>
+<b>What I did:</b> <div class="lines"><div></div><div></div></div>
+<b>Tools:</b> Claude, Excel / Google Sheets<br><b>Results:</b> <div class="lines"><div></div><div></div></div>
+<b>What I checked and how:</b> <div class="lines"><div></div><div></div></div></div>
+<p class="small">Use only the practice company in your portfolio, never real client data.</p><div class="foot"><span>BrightLedger Academy · Workbook 4 · Portfolio</span><span>Page 4</span></div></section></body></html>

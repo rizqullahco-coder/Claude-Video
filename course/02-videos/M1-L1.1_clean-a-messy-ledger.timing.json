@@ -1,0 +1,504 @@
+[
+ {
+  "id": "00_intro",
+  "cues": [
+   1.6
+  ],
+  "caps": [
+   {
+    "s": 1.6,
+    "e": 5.515,
+    "text": "Module 1, Lesson 1. Clean a messy ledger in 10 minutes."
+   }
+  ],
+  "dur": 6.9,
+  "start": 0.0
+ },
+ {
+  "id": "01_hook",
+  "cues": [
+   0.6,
+   3.057,
+   8.705,
+   19.316,
+   22.389
+  ],
+  "caps": [
+   {
+    "s": 0.6,
+    "e": 2.637,
+    "text": "It's the first working day of April."
+   },
+   {
+    "s": 3.057,
+    "e": 7.296,
+    "text": "Kopi Mesra, a two-outlet caf\u00e9, has just sent you their March"
+   },
+   {
+    "s": 7.296,
+    "e": 8.285,
+    "text": "ledger export."
+   },
+   {
+    "s": 8.705,
+    "e": 13.323,
+    "text": "101 rows. Vendor names spelled three different ways. Blank"
+   },
+   {
+    "s": 13.323,
+    "e": 17.861,
+    "text": "account codes. And somewhere in there, a few transactions"
+   },
+   {
+    "s": 17.861,
+    "e": 18.896,
+    "text": "posted twice."
+   },
+   {
+    "s": 19.316,
+    "e": 21.969,
+    "text": "Cleaning this by hand could take you an afternoon."
+   },
+   {
+    "s": 22.389,
+    "e": 26.323,
+    "text": "In this lesson, we'll do it with Claude in about 10 minutes, and"
+   },
+   {
+    "s": 26.323,
+    "e": 28.72,
+    "text": "we'll check every number along the way."
+   }
+  ],
+  "dur": 29.733333333333334,
+  "start": 6.9
+ },
+ {
+  "id": "02_objectives",
+  "cues": [
+   0.6,
+   4.609,
+   10.05,
+   14.141
+  ],
+  "caps": [
+   {
+    "s": 0.6,
+    "e": 4.189,
+    "text": "By the end of this lesson, you'll be able to do three things."
+   },
+   {
+    "s": 4.609,
+    "e": 8.315,
+    "text": "Upload a ledger and get a clear list of issues, without Claude"
+   },
+   {
+    "s": 8.315,
+    "e": 9.63,
+    "text": "changing anything yet."
+   },
+   {
+    "s": 10.05,
+    "e": 13.721,
+    "text": "Check Claude's findings by tying out the totals."
+   },
+   {
+    "s": 14.141,
+    "e": 17.596,
+    "text": "And ask for a clean, categorised file you can review and use."
+   }
+  ],
+  "dur": 18.6,
+  "start": 36.633
+ },
+ {
+  "id": "03_prepare",
+  "cues": [
+   0.6,
+   3.64,
+   10.279,
+   16.373,
+   23.639
+  ],
+  "caps": [
+   {
+    "s": 0.6,
+    "e": 3.22,
+    "text": "Step one. Prepare the file safely."
+   },
+   {
+    "s": 3.64,
+    "e": 9.059,
+    "text": "Before you upload anything, check your firm's policy on using"
+   },
+   {
+    "s": 9.059,
+    "e": 9.859,
+    "text": "AI tools."
+   },
+   {
+    "s": 10.279,
+    "e": 14.405,
+    "text": "Remove anything you don't need, like customer names, IC numbers,"
+   },
+   {
+    "s": 14.405,
+    "e": 15.953,
+    "text": "or bank account numbers."
+   },
+   {
+    "s": 16.373,
+    "e": 20.507,
+    "text": "For this course, you'll use the Kopi Mesra practice file. It's a"
+   },
+   {
+    "s": 20.507,
+    "e": 23.219,
+    "text": "fictional company, so it's safe to upload."
+   },
+   {
+    "s": 23.639,
+    "e": 27.576,
+    "text": "Download it from the lesson resources. It's called M1 ledger"
+   },
+   {
+    "s": 27.576,
+    "e": 28.363,
+    "text": "March messy."
+   }
+  ],
+  "dur": 29.366666666666667,
+  "start": 55.233
+ },
+ {
+  "id": "04_prompt",
+  "cues": [
+   0.6,
+   5.368,
+   10.655,
+   14.853,
+   20.684,
+   28.798
+  ],
+  "caps": [
+   {
+    "s": 0.6,
+    "e": 3.78,
+    "text": "Step two. Upload the file and give Claude a clear"
+   },
+   {
+    "s": 3.78,
+    "e": 4.948,
+    "text": "first instruction."
+   },
+   {
+    "s": 5.368,
+    "e": 9.474,
+    "text": "Open Claude, attach the spreadsheet, and type a prompt"
+   },
+   {
+    "s": 9.474,
+    "e": 10.235,
+    "text": "like this."
+   },
+   {
+    "s": 10.655,
+    "e": 14.433,
+    "text": "First, the background: who you are, and what the file is."
+   },
+   {
+    "s": 14.853,
+    "e": 18.681,
+    "text": "Then the request: find the problems, and name the kinds of"
+   },
+   {
+    "s": 18.681,
+    "e": 20.264,
+    "text": "problems you care about."
+   },
+   {
+    "s": 20.684,
+    "e": 25.595,
+    "text": "And one important rule: don't change anything yet. We want a"
+   },
+   {
+    "s": 25.595,
+    "e": 28.378,
+    "text": "list first, so we stay in control."
+   },
+   {
+    "s": 28.798,
+    "e": 32.506,
+    "text": "Now look at the last part. We ask for the totals, and for"
+   },
+   {
+    "s": 32.506,
+    "e": 36.474,
+    "text": "anything Claude is unsure about. That's the fact-check habit,"
+   },
+   {
+    "s": 36.474,
+    "e": 38.685,
+    "text": "and you'll use it in every lesson."
+   }
+  ],
+  "dur": 39.7,
+  "start": 84.6
+ },
+ {
+  "id": "05_issues",
+  "cues": [
+   0.6,
+   3.711,
+   10.05,
+   16.421,
+   18.898,
+   21.552,
+   26.081,
+   37.367
+  ],
+  "caps": [
+   {
+    "s": 0.6,
+    "e": 3.291,
+    "text": "Step three. Read the issues list."
+   },
+   {
+    "s": 3.711,
+    "e": 7.263,
+    "text": "Here's the summary you should get from the practice file. These"
+   },
+   {
+    "s": 7.263,
+    "e": 9.63,
+    "text": "are the issues we planted for you to find."
+   },
+   {
+    "s": 10.05,
+    "e": 16.001,
+    "text": "Six possible duplicates, worth RM 7,133.13."
+   },
+   {
+    "s": 16.421,
+    "e": 18.478,
+    "text": "Fourteen rows with no account code."
+   },
+   {
+    "s": 18.898,
+    "e": 21.132,
+    "text": "Three payments with no reference number."
+   },
+   {
+    "s": 21.552,
+    "e": 25.661,
+    "text": "Twenty-five different spellings for just thirteen vendors."
+   },
+   {
+    "s": 26.081,
+    "e": 31.147,
+    "text": "And two unusual items: a RM 5,000 cash withdrawal on a Sunday,"
+   },
+   {
+    "s": 31.147,
+    "e": 35.559,
+    "text": "posted to suspense, and a home air fryer that may be a"
+   },
+   {
+    "s": 35.559,
+    "e": 36.947,
+    "text": "personal expense."
+   },
+   {
+    "s": 37.367,
+    "e": 40.535,
+    "text": "Claude's wording will be different from this, and that's fine."
+   },
+   {
+    "s": 40.535,
+    "e": 42.272,
+    "text": "What matters is that you check it."
+   }
+  ],
+  "dur": 43.266666666666666,
+  "start": 124.3
+ },
+ {
+  "id": "06_tieout",
+  "cues": [
+   0.6,
+   5.06,
+   13.223,
+   22.359,
+   31.894
+  ],
+  "caps": [
+   {
+    "s": 0.6,
+    "e": 4.64,
+    "text": "Step four. Tie out the totals. Never skip this."
+   },
+   {
+    "s": 5.06,
+    "e": 12.803,
+    "text": "Total debits in the original file: RM 126,078.67."
+   },
+   {
+    "s": 13.223,
+    "e": 21.939,
+    "text": "Take out the six duplicates, and debits drop to RM 118,945.54."
+   },
+   {
+    "s": 22.359,
+    "e": 28.257,
+    "text": "The difference is exactly RM 7,133.13, the value of the"
+   },
+   {
+    "s": 28.257,
+    "e": 31.474,
+    "text": "duplicates. The numbers agree."
+   },
+   {
+    "s": 31.894,
+    "e": 36.083,
+    "text": "But before you remove anything, check each duplicate against the"
+   },
+   {
+    "s": 36.083,
+    "e": 40.011,
+    "text": "source document. Two identical rows aren't always a mistake."
+   },
+   {
+    "s": 40.011,
+    "e": 42.826,
+    "text": "Sometimes there really were two deliveries."
+   }
+  ],
+  "dur": 43.833333333333336,
+  "start": 167.567
+ },
+ {
+  "id": "07_clean",
+  "cues": [
+   0.6,
+   3.83,
+   7.951,
+   17.937,
+   25.316
+  ],
+  "caps": [
+   {
+    "s": 0.6,
+    "e": 3.41,
+    "text": "Step five. Ask for the clean file."
+   },
+   {
+    "s": 3.83,
+    "e": 7.531,
+    "text": "Once you've checked the list, reply with clear rules, like this."
+   },
+   {
+    "s": 7.951,
+    "e": 11.975,
+    "text": "Use only accounts from the chart of accounts. Standardise the"
+   },
+   {
+    "s": 11.975,
+    "e": 15.868,
+    "text": "vendor names. Flag duplicates instead of deleting them. And"
+   },
+   {
+    "s": 15.868,
+    "e": 17.517,
+    "text": "don't change any amounts."
+   },
+   {
+    "s": 17.937,
+    "e": 21.913,
+    "text": "You get back a cleaned spreadsheet, with a standard vendor name,"
+   },
+   {
+    "s": 21.913,
+    "e": 24.896,
+    "text": "a suggested account, and a status for every row."
+   },
+   {
+    "s": 25.316,
+    "e": 28.766,
+    "text": "Anything Claude isn't sure about is marked for review, so you"
+   },
+   {
+    "s": 28.766,
+    "e": 29.898,
+    "text": "make the final call."
+   }
+  ],
+  "dur": 30.9,
+  "start": 211.4
+ },
+ {
+  "id": "08_recap",
+  "cues": [
+   0.6,
+   1.861,
+   11.031,
+   20.256,
+   27.049
+  ],
+  "caps": [
+   {
+    "s": 0.6,
+    "e": 1.441,
+    "text": "Let's recap."
+   },
+   {
+    "s": 1.861,
+    "e": 6.417,
+    "text": "Prepare your file safely. Ask for an issues list first. Tie out"
+   },
+   {
+    "s": 6.417,
+    "e": 10.611,
+    "text": "the totals. Then ask for the clean file, with clear rules."
+   },
+   {
+    "s": 11.031,
+    "e": 15.555,
+    "text": "Now it's your turn. Download the practice file, run both"
+   },
+   {
+    "s": 15.555,
+    "e": 19.836,
+    "text": "prompts, and fill in the tie-out sheet in Workbook 1."
+   },
+   {
+    "s": 20.256,
+    "e": 23.945,
+    "text": "Remember: Claude does the heavy lifting, but you're the"
+   },
+   {
+    "s": 23.945,
+    "e": 26.629,
+    "text": "accountant. You sign off on the numbers."
+   },
+   {
+    "s": 27.049,
+    "e": 31.299,
+    "text": "In the next lesson, you'll learn the BRIEF method: a simple way"
+   },
+   {
+    "s": 31.299,
+    "e": 33.862,
+    "text": "to write prompts that work every time."
+   }
+  ],
+  "dur": 34.86666666666667,
+  "start": 242.3
+ },
+ {
+  "id": "09_outro",
+  "cues": [],
+  "caps": [],
+  "dur": 6.0,
+  "start": 277.167
+ }
+]

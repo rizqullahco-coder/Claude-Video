@@ -1,0 +1,54 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Prompt pack</title><style>
+@page { size: A4; margin: 0; }
+:root { --teal:#0F4C5C; --deep:#0A2F38; --amber:#E9A23B; --amber-soft:#FBE7C4; --cream:#FBF6EC; --ink:#12262B; --muted:#5B6F73; --line:#DCD4C4; --coral:#D9644A; --green:#2E8B62; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; color: var(--ink); font-size: 10.5pt; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 210mm; min-height: 297mm; padding: 18mm 18mm 20mm; position: relative; page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+.foot { position: absolute; bottom: 9mm; left: 18mm; right: 18mm; display: flex; justify-content: space-between; font-size: 8pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 3mm; }
+.cover { background: var(--deep); color: #fff; display: flex; flex-direction: column; justify-content: space-between; padding: 24mm 20mm; }
+.logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 13pt; }
+.logo i { width: 22px; height: 22px; background: var(--amber); border-radius: 6px; transform: rotate(45deg); display: inline-block; position: relative; }
+.logo i::after { content: ''; position: absolute; inset: 7px; background: var(--deep); border-radius: 2px; }
+.cover .k { color: var(--amber); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 10pt; }
+.cover h1 { font-family: 'Inter Display', 'Inter'; font-size: 44pt; line-height: 1.02; letter-spacing: -.02em; margin-top: 6mm; }
+.cover .sub { color: #BFD3D6; font-size: 13pt; margin-top: 6mm; max-width: 140mm; }
+.cover .band { height: 3px; width: 60mm; background: var(--amber); margin-top: 10mm; }
+.cover .meta { color: #BFD3D6; font-size: 9.5pt; }
+h2 { font-family: 'Inter Display', 'Inter'; color: var(--teal); font-size: 20pt; letter-spacing: -.01em; margin-bottom: 2mm; }
+h3 { color: var(--teal); font-size: 12pt; margin: 6mm 0 2mm; }
+.kick { color: #B77A1E; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 8.5pt; margin-bottom: 1mm; }
+p { margin: 2mm 0; }
+.lead { color: var(--muted); font-size: 11pt; }
+table { width: 100%; border-collapse: collapse; margin: 3mm 0; font-size: 9.5pt; }
+th { background: var(--teal); color: #fff; text-align: left; padding: 2.2mm 2.5mm; font-weight: 600; }
+td { border-bottom: 1px solid var(--line); padding: 2.6mm 2.5mm; vertical-align: top; }
+td.blank { height: 9mm; }
+td.n, th.n { text-align: right; font-family: 'JetBrains Mono', monospace; }
+.box { border: 1.2px solid var(--line); border-radius: 3mm; padding: 4mm 5mm; margin: 3mm 0; background: #fff; }
+.box.amber { background: var(--amber-soft); border-color: #EFD196; }
+.box.teal { background: #E6F0F0; border-color: #C3DADB; }
+.lines div { border-bottom: 1px solid var(--line); height: 8.5mm; }
+.chk { list-style: none; }
+.chk li { padding: 1.6mm 0 1.6mm 8mm; position: relative; border-bottom: 1px dashed #E6DFD1; }
+.chk li::before { content: ''; position: absolute; left: 0; top: 2.4mm; width: 4mm; height: 4mm; border: 1.4px solid var(--teal); border-radius: 1mm; }
+pre { font-family: 'JetBrains Mono', monospace; font-size: 8.8pt; white-space: pre-wrap; background: #F4F1EA; border-left: 3px solid var(--amber); padding: 3mm 4mm; border-radius: 2mm; margin: 2mm 0; line-height: 1.45; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+.small { font-size: 8.5pt; color: var(--muted); }
+.brief td:first-child { width: 30mm; font-weight: 700; color: var(--teal); }
+</style></head><body><section class="page cover"><div class="logo"><i></i>BrightLedger Academy</div>
+<div><div class="k">Bonus</div><h1>Claude prompt pack<br>for accountants</h1><div class="sub">16 copy-ready prompts from the course, built with the BRIEF method.</div><div class="band"></div></div>
+<div class="meta">AI for Accountants: Close Your Books Faster with Claude<br>Practice company: Kopi Mesra Sdn Bhd (fictional). Name: ______________________________</div></section><section class="page"><div class="kick">Module 1 · Ledgers</div><h2>Clean books fast</h2><h3>1.1 Issues list</h3><pre>I'm the accountant for Kopi Mesra Sdn Bhd, a café. The attached file is their March 2026 general ledger export.
+Review it and list every issue you find: duplicate entries, missing account codes, missing references, inconsistent vendor names, and anything unusual.
+Don't change the data yet.
+Show the results as a table: row, reference, issue, suggested fix. Finish with total debits and total credits, and tell me anything you're unsure about.</pre><h3>1.1 Clean file</h3><pre>Thanks. Now create a cleaned version of the file:
+• Use only accounts from the attached chart of accounts
+• Add a column with the standard vendor name
+• Flag duplicates, don't delete them
+• Don't change any amounts
+• Add a Status column: OK, Review, or Possible duplicate
+Show total debits and credits before and after so I can tie out.</pre><h3>1.3 Vendor map</h3><pre>Group every vendor name in the attached ledger that refers to the same supplier (for example 'GRAB*FOOD 8812' and 'Grab Food MY').
+Return a table: variant as written, standard name, suggested account code from the attached chart of accounts, confidence (high/medium/low).
+Only use accounts that exist in the chart. List low-confidence matches separately for me to decide.</pre><h3>1.4 Duplicates and odd items</h3><pre>Check the attached ledger for: exact duplicates (same date, reference and amount), near duplicates (same amount and vendor within 3 days), missing references, round-sum amounts, weekend postings and anything posted to Suspense.
+Don't delete anything. Give me a table: row, type of issue, why it's suspicious, what document I should check.</pre><h3>1.5 Anonymise</h3><pre>Before I share this file, list every column that may contain personal or sensitive data (names, IC numbers, phone numbers, bank account numbers, addresses). Suggest how to mask each one so the accounting analysis still works.</pre><div class="foot"><span>BrightLedger Academy · Prompt pack</span><span>Page 2</span></div></section><section class="page"><div class="kick">Module 2 · Closing</div><h2>Reconcile a month</h2><h3>2.1 Month-end checklist</h3><pre>I close the books monthly for a two-outlet café with one bank account, delivery-platform sales, payroll and accruals. Build a month-end checklist in close order with columns: task, owner, due (working day 1-5), evidence to keep. Keep it to 20 tasks or fewer.</pre><h3>2.2 Bank rec matching</h3><pre>Attached are the March bank statement and the March cashbook. Match them using these rules, in order: 1) same amount, 2) date within ±3 days, 3) similar description.
+Return three tables: matched items, items only in the bank, items only in the cashbook. Show closing balances from both files and the difference. Don't guess matches; list uncertain ones separately.</pre><h3>2.3 Reconciling items</h3><pre>For each unmatched item, classify it as: timing difference (unpresented payment or deposit in transit), bank-only item to record (charges, fees, interest), or error (amount or posting mistake). For errors, show the likely cause, e.g. transposed digits. Then prepare the bank reconciliation statement: balance per bank, ± timing differences = adjusted bank; balance per cashbook, ± adjustments = adjusted cashbook. They must agree.</pre><h3>2.4 Accruals and prepayments</h3><pre>Using the attached list of month-end items, draft journal entries for 31 March 2026. For each: date, debit account, credit account, amount, narrative, calculation. Use only accounts from the attached chart. Check that total debits equal total credits and show the check.</pre><h3>2.5 Close memo</h3><pre>Write a one-page month-end close memo for March 2026 using the information below. Sections: key balances, adjustments made, reconciliations completed, open items with owners, checks performed. Plain English, no more than 300 words. [paste your notes]</pre><div class="foot"><span>BrightLedger Academy · Prompt pack</span><span>Page 3</span></div></section><section class="page"><div class="kick">Modules 3–4 · Reports and capstone</div><h2>Reports that read well</h2><h3>3.1 TB to statements</h3><pre>Map each account in the attached trial balance to the Profit & Loss or the Balance Sheet, grouped as: Revenue, Cost of sales, Operating expenses, Finance costs, Assets, Liabilities, Equity. Then produce a summarised P&L and balance sheet. Show that the TB balances and that profit agrees to the change in equity.</pre><h3>3.2 Variance analysis</h3><pre>Using the attached budget vs actual, flag variances bigger than RM 1,000 or 10%. For each, show: amount, %, favourable or adverse, and three possible business reasons I should confirm with the owner. Don't state reasons as facts.</pre><h3>3.3 Commentary</h3><pre>Write management commentary on the top three variances for the café owner. For each use: What happened (numbers), Why (only the reasons I confirm below), So what (impact on profit or cash), Now what (one action). Under 200 words, no jargon. Confirmed reasons: [paste]</pre><h3>3.4 Dashboard</h3><pre>Create a one-page dashboard for March from the attached data: revenue by channel (column chart), gross margin %, top 5 expenses (bar chart), budget vs actual for profit, and three key messages. Use clear labels and RM values.</pre><h3>3.5 Tailor</h3><pre>Rewrite this management report for [the café owner / a bank credit officer / the external auditor]. Keep all numbers identical. Change only emphasis, length and tone to fit the reader. [paste report]</pre><h3>4.x Capstone kickoff</h3><pre>I'm closing April 2026 for Kopi Mesra Sdn Bhd. Attached is the capstone pack. Read the README sheet and give me a step-by-step plan for the close, with the checks I should do after each step. Don't do the work yet.</pre><div class="foot"><span>BrightLedger Academy · Prompt pack</span><span>Page 4</span></div></section></body></html>
