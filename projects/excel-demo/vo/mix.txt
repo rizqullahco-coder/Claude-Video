@@ -1,0 +1,16 @@
+[0:a]aresample=48000,adelay=300:all=1[a0];
+[1:a]aresample=48000,adelay=3900:all=1[a1];
+[2:a]aresample=48000,adelay=7700:all=1[a2];
+[3:a]aresample=48000,adelay=11300:all=1[a3];
+[4:a]aresample=48000,adelay=14400:all=1[a4];
+[5:a]aresample=48000,adelay=18300:all=1[a5];
+[6:a]aresample=48000,adelay=20600:all=1[a6];
+[7:a]aresample=48000,adelay=25000:all=1[a7];
+[8:a]aresample=48000,adelay=27300:all=1[a8];
+[9:a]aresample=48000,adelay=35100:all=1[a9];
+[10:a]aresample=48000,adelay=37600:all=1[a10];
+[11:a]aresample=48000,adelay=45900:all=1[a11];
+[12:a]aresample=48000,adelay=48600:all=1[a12];
+[13:a]aresample=48000,adelay=51500:all=1[a13];
+[14:a]aresample=48000,adelay=55300:all=1[a14];
+[a0][a1][a2][a3][a4][a5][a6][a7][a8][a9][a10][a11][a12][a13][a14]amix=inputs=15:normalize=0,highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=5:release=120,apad=whole_dur=57.6,atrim=0:57.6,loudnorm=I=-16:TP=-1.5:LRA=7[v]
